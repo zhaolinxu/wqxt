@@ -1,0 +1,66 @@
+body {
+	background:#000000;
+}
+body * {
+	font-family:sans-serif;
+	font-size:12px;
+}
+#main {
+	width:900px;
+	margin-left:auto;
+	margin-right:auto;
+	padding-bottom:20px;
+}
+.playerPanel table, .enemyPanel table, .centerPanel table {
+	background: #660000;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 5px outset #666666;
+	min-width:200px;
+	width:100%;
+	text-align:center;
+	color:#b0b0b0;
+	margin-bottom:10px;
+}
+.centerPanel td {
+	padding-bottom:3px;
+}
+.combatLog {
+	padding:0px 10px;
+}
+.combatLog div.player {
+	text-align:left;
+}
+.combatLog div.enemy {
+	text-align:right;
+}
+.powerName {
+	font-size:14px;
+	font-weight:bold;
+}
+.powerHeader, .powerHeader span{
+	font-size:28px;
+	font-weight:bold;
+}
+.playerPanel {
+	width:200px;
+}
+.playerPanel td, .enemyPanel td, .lastEnemyWeapon td {
+	width:50%;
+}
+.topPanel td{
+	font-size:40px;
+}
+.blockHeader {
+	font-size:16px;
+	font-weight:bold;
+}
+.footer {
+	position:fixed;
+	bottom:0;
+	text-align:center;
+	width:100%;
+	background:#000000;
+	color:#b0b0b0;
+}

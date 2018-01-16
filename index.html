@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Realm of Decay</title>
+		<link rel="stylesheet" type="text/css" href="style.v1.0.css" />
+	</head>
+	<body onload="Game.init()">
+		<div id="main">
+      <table id="topBar">
+        <tr>
+          <td style="text-align:center;width:125px;"><span><strong>Realm of Decay</strong> <br /><span style="font-size:10px;">Version 1.0 RC2</span></span></td>
+          <td class="topBarButton" id="playerTab">Player</td>
+          <td class="topBarButton" id="combatTab">Combat</td>
+          <td class="topBarButton" id="zoneTab">Zones</td>
+          <td class="topBarButton" id="powersTab">Powers</td>
+          <td class="topBarButton" id="inventoryTab">Items</td>
+          <td class="topBarButton" id="storeTab">Store</td>
+          <td class="topBarButton" id="optionsTab">Options</td>
+          <td class="topBarButton" id="helpTab">Help</td>
+          <td class="topBarButton" id="updateTab">Updates</td>
+          <td class="topBarButton" id="badgeTab">Badges</td>
+          <td style="text-align:right;">
+            <span style="font-size:12px;display:inline-block;">
+              Seeds: <span id="seedsOut"></span><br />
+              Scrap: <span id="scrapOut"></span>
+            </span></td>
+        </tr>
+      </table>
+			<table style="width:100%">
+				<tr>
+					<td id="rightPanel" valign="top">
+						<table>
+							<tr>
+								<td>
+                  <table id="playerTable" style="display:none;">
+                    <tr>
+                      <td>
+                        <div id="playerInfoPanel"></div>
+                        <div id="playerEquipmentPanel"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="powerHeader">Statistics</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td id="statsOut">
+                      </td>
+                    </tr>
+                  </table>
+									<table id="combatTable" style="display:none;">
+                    <tr>
+											<td>
+												<div class="playerHPBorder">
+													<img id="playerHPBar" class="playerHPBar" src="Clear.gif" />
+												</div>
+												<div class="enemyHPBorder">
+													<img id="enemyHPBar" class="enemyHPBar" src="Clear.gif" />
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+                        <span id="playerCombatPanel"></span>
+                        <span id="enemyCombatPanel" style="float:right;"></span>
+											</td>
+										</tr>
+                    <tr>
+                      <td>
+                        <span id="playerCombatWeaponPanel"></span>
+                        <span id="enemyCombatWeaponPanel" style="float:right;"></span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span id="playerCombatArmourPanel"></span>
+                        <span id="enemyCombatArmourPanel" style="float:right;"></span>
+                      </td>
+                    </tr>
+										<tr>
+											<td>
+                        <div class="powerHeader">Combat Log</div>
+                        <div id="logBody"></div>
+											</td>
+										</tr>
+									</table>
+                  <table id="zoneTable" style="display:none;">
+                    <tr>
+                      <td>
+                        <div class="powerHeader">Current Zone</div>
+                        <div id="currentZone"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="powerHeader">Zone List</div>
+                        <div id="zoneList"></div>
+                    </tr>
+                  </table>
+									<table id="powersTable" style="display:none;">
+										<tr>
+											<td>
+												<table id="availablePowers" class="availablePowersPanel">
+                          <tr>
+                            <td id="availablePowersHeader"><div class="powerHeader">Available Powers (<span id="powerPointsOut"></span> points available):</div></td>
+                          </tr>
+													<tr id="available_row">
+                            <td id="available_area">
+                            </td>
+                          </tr>
+												</table>
+                        <div class="powerHeader">Selected Powers</div>
+                        <table id="purchasedPowers" class="availablePowersPanel">
+                          <tr>
+                            <td id="purchased_area"></td>
+                          </tr>
+                        </table>
+                        <span class="nonPanelButton" id="powerReset" onclick="Game.resetPowers();">Reset your Powers</span>
+											</td>
+										</tr>
+									</table>
+									<table id="inventoryTable" style="display:none;">
+                    <tr id="cleanup">
+                      <td><span class="nonPanelButton" onclick="Game.automaticInventoryClear();">Clean Inventory</span></td>
+                    </tr>
+                    <tr id="enemyItems" style="display:none;">
+                      <td>
+                        <div class="powerHeader">Enemy Inventory</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <table id="enemyInvOut"></table>
+                      </td>
+                    </tr>
+                    <tr id="weaponCache" style="display:none;">
+                      <td>
+                        <div class="powerHeader">Weapon Cache</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div id="weaponOut"></div>
+                      </td>
+                    </tr>
+                    <tr id="armourCache" style="display:none;">
+                      <td>
+                        <div class="powerHeader">Armour Cache</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div id="armourOut"></div>
+                      </td>
+                    </tr>
+                    <tr id="potionCache" style="display:none;">
+                      <td>
+                        <div class="powerHeader">Potion Cache</div>
+                      </td>
+                      <td>
+                        <div id="potionsOut"></div>
+                      </td>
+                    </tr>
+                  </table>
+									<table id="storeTable" style="display:none;">
+                    <tr>
+                      <td colspan="2">
+                        <div class="powerHeader">Upgrading Items</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div id="weaponPanelOut"></div>
+                      </td>
+                      <td>
+                        <div id="armourPanelOut"></div>
+                    </tr>
+                    <tr><td>&nbsp;</td></tr>
+                    <tr>
+                      <td colspan="2">
+                        <div class="powerHeader">Reforging Debuffs</div>
+                        <div id="debuffList"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="powerHeader">Weapons For Sale</div>
+                        <div id="storeWeapons"></div>
+                        <div class="powerHeader">Armour For Sale</div>
+                        <div id="storeArmour"></div>
+                      </td>
+                    </tr>
+                  </table>
+									<table id="optionsTable" style="display:none;">
+                    <tr>
+                      <td>
+                        <div id="autoBattleHook"></div>
+                        <div id="autoSellHook"></div>
+                        <div id="saveHook"></div>
+                      </td>
+                    </tr>
+                  </table>
+                  <table id="helpTable" style="display:none;">
+                    <tr>
+                      <td>
+                        <div class="powerHeader">Introduction</div>
+
+                        <p>Remember that old saying, 'war never changes'? Yea, the guys who came up with that never banked on the ground breaking re-discovery of magic, long considered unfeasible by society at large and persecuted out of existence centuries ago.</p>
+
+                        <p>With society being what it was at the time, precious few people outside of government agencies knew of these developments, or of the raw power that could be harnessed with them, until that power was brought to bear against them. When concrete information finally came to light about the discoveries, millions had already fallen in titanic struggles worldwide, the result of militaries across the globe testing the limits and applications of their new-found strength.</p>
+
+                        <p>However, their meddling with the powers laying dormant within the planet has come at a great cost. Some once verdant areas of the land are fading away without warning or visible cause, to be reduced to deserted and arid areas. On top of this, those who most consistently exercised their magical prowess have found themselves suffering from a myriad of strange and incomprehensible effects: seemingly random loss of limbs, sudden blindness, occasionally bursting into flame, that sort of thing.</p>
+
+                        <p>And then there's you. Once a prominent researcher at the Ley Line Research Facility, your life was turned upside down when you fell victim to an interesting, if maddening ailment - your hands, usually good for just about anything, now cause a noticeable increase in the rate at which non-natural objects degrade when held. This problem was discovered when an incredibly valuable ancient artifact crumbled to dust in your hands, costing the facility millions.</p>
+
+                        <p>Now with nothing left to return to, you find yourself living off scraps and foraging in a cave system some distance away from the facility. Seeking to right some of the many wrongs committed by your colleagues and the people they now serve, you cobble together a crude weapon and head out into the ravaged world to mete out justice, one way or another.</p>
+
+                        <div class="powerHeader">Combat Mechanics</div>
+
+                        <p>Everything in the Realm is out to kill you, whether it's for survival or just because they don't like your face, so it's in your best interest to learn how fighting works. Each combatant will have two pieces of equipment to consider: their weapon, which dictates the amount and type of damage they will deal, and their armour, which dictates how much damage they will take. When looking at the 'Combat' tab, these items are laid out side by side, along with the combatant names and health pools.</p>
+
+                        <p>When combat begins - initiated by the 'Look for something to kill' button - a target will be located for you, and then the two of you will begin trading blows until either you fall, the target falls, or you run away.</p>
+
+                        <p>When attacking a target, the damage you deal is based on a few things:</p>
+                        <ul>
+                          <li>The attack damage on your weapon;</li>
+                          <li>The value of the stat relating to your current weapon (Strength for melee, Dexterity for ranged, Intelligence for magic);</li>
+                          <li>Any resistances or vulnerabilities on the target's armour;</li>
+                          <li>Any powers that inflence damage dealt.</li>
+                        </ul>
+
+                        <p>And when your target decides to fight back, the damage they deal to you is based on a similar set of values:</p>
+                        <ul>
+                          <li>The attack damage on their weapon;</li>
+                          <li>Their 'main stat' value (this plays the same role yours does in your damage calculation);</li>
+                          <li>Any resistances or vulnerabilities on your armour;</li>
+                          <li>Any powers that influence damage taken.</li>
+                        </ul>
+
+                        <p>Your offensive options during combat are limited to fleeing, using a potion, and using a Burst Attack. The Burst Attack button is simply a single strike delivered instantly to the target, respecting all the usual rules regarding how much damage is dealt, as well as resetting the time delay between attacks.</p>
+
+                        <p>When you are not in combat, your health regenerates based on your Constitution value. That value also increases the size of your maximum health pool, which is good for the whole 'not dying' thing.</p>
+
+                        <div class="powerHeader">Debuffs</div>
+
+                        <p>Weapons of particularly high quality will have a debuff attached to them. Each strike that is delivered with the weapon in combat has a 10% chance to apply the debuff to the target. If the debuff does damage to the target, that damage ignores any armour they are wearing. Note the ambiguity - your enemies can also take advantage of debuffs if they have a weapon that carries one, in the same way that you can.</p>
+
+                        <p>A full listing of the debuffs in the game and their effects is available in the Store tab.</p>
+
+                        <div class="powerHeader">Powers</div>
+
+                        <p>The ability to break things by holding them isn't the only interesting ability you have access to - the Powers tab lists a number of additional effects that can apply to you and be honed and strengthened through the leveling process. You'll gain a point every level to spend on this tab, and most of the listed powers unlock additional subsidiaries once they reach maximum strength - although you can only level one subsidiary power at once. Located on this tab is also the 'Reset Powers' button - for a small fee of scrap based on total Power Points earned, you can clear your mind, and thus your power selection, and then re-assign points to your taste.</p>
+
+                        <div class="powerHeader">Item Quality</div>
+
+                        <p>The quality of items dictates several things: the number and strength of individual armour resistances and vulnerabilities, the damage ranges available on weapons, and the availability and potency of debuffs on weapons. There are six 'tiers' of quality, although only five of those are available to you. These tiers and their effects on equipment are as follows:<br /><br />
+
+                          <span class="q221">Poor (grey)</span> items are the lowest quality of item.<br />
+                          - Weapons of poor quality have 90% of their intended damage values.<br />
+                          - Armours of poor quality carry 1 strength, and 2 vulnerabilities.<br />
+                          <span class="q222">Normal (white)</span> items are the most common quality of item in the Realm<br />
+                          - Weapons of normal quality have no distinguishing features.<br />
+                          - Armours of normal quality carry 1 strength and 1 vulnerability.<br />
+                          <span class="q223">Good (green)</span> items are a step above normal items.<br />
+                          - Weapons of good quality have 110% of their intended damage values, as well as a normal debuff.<br />
+                          - Armours of good quality carry 2 strengths and 1 vulnerability.<br />
+                          <span class="q224">Great (blue)</span> items represent superior craftsmanship.<br />
+                          - Weapons of great quality have 120% of their intended damage values, and also have unique names and flavour text, as well as a superior debuff.<br />
+                          - Armours of great quality carry 2 strengths and no vulnerabilities.<br />
+                          <span class="q225">Amazing (purple)</span> items represent the pinnacle of items obtainable in the Realm.<br />
+                          - Weapons of amazing quality have 130% of their intended damage values, and also have unique names and flavour text, as well as a superior debuff.<br />
+                          - Armours of amazing quality carry 3 strengths and no vulnerabilities.<br />
+                          <span class="q226">Legendary (orange)</span> items are unique pieces made for specific bosses, and are not obtainable by players.<br />
+                          - Weapons of legendary quality deal more damage and have more potent debuffs than even amazing weapons.<br />
+                          - Armours of legendary quality are not strictly better than amazing armours - they instead serve to enforce a weakness on bosses for the player to take advantage of.</p>
+
+                        <div class="powerHeader">Durability and Decay</div>
+
+                        <p>All equipment has a set amount of durability - a measure of how close an item is to becoming unusable. When an item reaches 0 durability, its effect is diminished significantly: weapons have their damage output cut in half and can no longer apply their debuffs, and armour resistances no longer apply (although vulnerabilities still apply even when armour is broken).</p>
+
+                        <p>To combat this, you have the ability to repair items. This is done at no cost, but takes time to complete based on your level and the level of the items being repaired. During the repair process, you are free to switch out items of equipment for other damaged items without interrupting the repairing procedure. Entering combat will halt the repair process if it is running.</p>
+
+                        <div class="powerHeader">Items</div>
+
+                        <p>The 'Items' tab plays host to a listing of all items you are currently carrying, and presents options as to how they can be used. Items can be freely equipped, sold, scrapped or discarded from this tab at any time, even during combat - worth remembering if you come up against an opponent whose weakness you can't exploit with your currently equipped weapon, or one who keeps taking advantage of a gap in your defences.</p>
+
+                        <p>Selling an item rewards you with an amount of seeds (the currency of the Realm) based on that item's level and quality. Scrapping an item rewards you with a small amount of scrap based on the quality of the destroyed item. Both seeds and scrap are used in the Store to enhance or replace your equipment.</p>
+
+                        <div class="powerHeader">The Store</div>
+
+                        <p>The Store is your centralised hub for equipment enhancement or replacement. Here, you can perform the following actions:</p>
+                        <ul>
+                          <li>Spend seeds to increase the level of your equipped weapon and/or armour;</li>
+                          <li>Spend seeds to purchase quality weapons and armour which may be otherwise difficult to find.</li>
+                          <li>Spend scrap to increase the quality of your equipped weapon and/or armour;</li>
+                          <li>Spend scrap to apply a debuff to your equipped weapon or replace it with a better one;</li>
+                        </ul>
+
+                        <p>When purchasing item quality upgrades, raising the quality past certain thresholds causes additional things to happen. When an item is upgraded to 'Great' quality, you have the option of applying a custom name and piece of flavour text to that weapon. When upgrading a weapon specifically, it is granted a random debuff once it reaches 'Good' quality, which it retains through further quality upgrades unless it is replaced using the option in the Store. When upgrading armour, the distribution of strengths and vulnerabilities shifts, in accordance with the guides set in the 'Item Quality' section above.</p>
+
+                        <p>Items upgraded using the Store cannot reach Legendary quality.</p>
+
+                        <div class="powerHeader">Options</div>
+
+                        <p>The 'Options' tab is home to a number of configuration options that didn't necessarily belong in other tabs, including controls for the auto-battle system, configuration options for the bulk sell and scrap buttons on the Items tab, and manual saving and resetting.</p>
+
+                        <p>The auto-battle system is what makes this game semi-idle: it will attempt to initiate combat whenever your health is full, will flee from combat if you are close to death, repair items if they have broken or are close to doing so, and bulk sell or scrap items if your inventories get full.</p>
+
+                        <p>The auto-battle system will not do certain things, though: It will not change your equipment for you, it will not attempt to upgrade or purchase new equipment in the Store, nor will it attempt to spend any of your Stat Points or Power Points for you. The auto-battle system will stop running automatically if either section of your inventory is full after the usual selling or scrapping has occured.</p>
+
+                        <div class="powerHeader">Badges</div>
+
+                        <p>During your time in the Realm, you'll make progress towards the earning of 'badges' - one time rewards for reaching milestones and performing certain feats within the game world. Each of these badges grants a 2% boost to seeds and experience gained from combat.</p>
+
+                        <div class="powerHeader">Key Bindings</div>
+
+                        <p>A number of game functions are mapped to keys on the keyboard for easy access, as follows:</p>
+                        <ul>
+                          <li>1 - Activates the Player tab.</li>
+                          <li>2 - Activates the Combat tab.</li>
+                          <li>3 - Activates the Powers tab.</li>
+                          <li>4 - Activates the Inventory tab.</li>
+                          <li>5 - Activates the Forge tab.</li>
+                          <li>6 - Activates the Shop tab.</li>
+                          <li>7 - Activates the Options tab.</li>
+                          <li>8 - Activates the Help tab.</li>
+                          <li>9 - Activates the Updates tab.</li>
+                          <li>0 - Activates the Badges tab.</li>
+                          <li>Spacebar - Initiates combat.</li>
+                          <li>B - Activates your Burst Attack in combat.</li>
+                          <li>F - Flees from combat.</li>
+                          <li>R - Initiates repair of your active equipment.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </table>
+                  <table id="updateTable" style="display:none;">
+                    <tr>
+                      <td>
+                        <div class="powerHeader">Update News</div>
+                        <p><strong>Version 1.0 RC2</strong></p>
+                        <p>Changes in this version:</p>
+                        <ul>
+                          <li>Quality of Life<ul>
+                            <li>The Inventory Clean button and the auto-battle function now provide a summary of the resources gained from processing all of the player's items, instead of a single message for each item.</li>
+                            <li>Clicking on a toast notification will dismiss it and display the next one in the queue, if there is one.</li>
+                          </ul></li>
+                          <li>Bug Fixes<ul>
+                            <li>Fixed an issue wherein the automatic clearing of the inventory by the auto-battle function was not triggering.</li>
+                            <li>Fixed an issue wherein the keybinding for Burst Attack was placing it on cooldown without performing the attack.</li>
+                            <li>You can no longer change zones while in combat.</li>
+                            <li>Fixed an edge case where the 'Wherefore Art Thou, Romeo?' badge could be unlocked by inflicting Sleep with a killing blow.</li>
+                            <li>Fixed an issue where cancelling out of the item renaming dialogue would result in wasted scrap.</li>
+                          </ul></li>
+                          <li>Badges and Tracking<ul>
+                            <li>The descriptions and flavour text on badges are now permanetly visible, even if the badge has not yet been earned.</li>
+                            <li>The boost to seed and experience gains from badges have been increased to 2% per badge.</li>
+                          </ul></li>
+                          <li>Balance Changes<ul>
+                            <li>The shop stock is now level capped to the lower value out of your character's level and the level cap for your current zone.</li>
+                            <li>To accompany the above change, the shop inventory now regenerates when changing zones.</li>
+                            <li>The Sleep debuff is now much more likely to break as a result of incoming damage.</li>
+                          </ul></li>
+                          <li>Known Issues<ul>
+                            <li>The badges 'Alchemical Bombardment', 'Trust Me, I'm a Doctor', 'Dirty Tactics', 'Potion Hoarder' and 'Full House' are still unattainable due to the postponement of the Potions mechanic.</li>
+                            </ul></li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </table>
+                  <table id="badgeTable" style="display:none;">
+                    <tr>
+                      <td id="selectedBadge">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div id="badgeList">
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <table id="initTable">
+                    <tr>
+                      <td>Loading...</td>
+                    </tr><tr>
+                      <td id="loadedInit" style="display:none;">init.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedStrings" style="display:none;">strings.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedZones" style="display:none;">zones.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedPowers" style="display:none;">powers.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedCombat" style="display:none;">combat.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedInventory" style="display:none;">inventory.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedPlayer" style="display:none;">player.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedTickers" style="display:none;">tickers.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedUI" style="display:none;">ui.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedUIPanels" style="display:none;">uipanels.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedBadges" style="display:none;">badges.js loaded.</td>
+                    </tr><tr>
+                      <td id="loadedKeybindings" style="display:none;">keybindings.js loaded.</td>
+                    </tr>
+                  </table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+    <div id="saveToast" class="savePopup" style="display:none;" onclick="Game.showMessage()"><span id="toastContent"></span></div>
+    <script type="text/javascript" src="shims.v1.0.js"></script>
+    <script type="text/javascript" src="init.v1.01.js"></script>
+    <script type="text/javascript" src="strings.v1.01.js"></script>
+    <script type="text/javascript" src="zones.v1.02.js"></script>
+    <script type="text/javascript" src="powers.v1.0.js"></script>
+    <script type="text/javascript" src="combat.v1.01.js"></script>
+    <script type="text/javascript" src="inventory.v1.03.js"></script>
+    <script type="text/javascript" src="player.v1.0.js"></script>
+    <script type="text/javascript" src="tickers.v1.02.js"></script>
+    <script type="text/javascript" src="ui.v1.02.js"></script>
+    <script type="text/javascript" src="uipanels.v1.01.js"></script>
+    <script type="text/javascript" src="badges.v1.0.js"></script>
+    <script type="text/javascript" src="keybindings.v1.01.js"></script>
+    <script type="text/javascript">document.onkeypress = keyBindings;</script>
+	</body>
+</html>
