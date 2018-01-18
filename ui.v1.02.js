@@ -248,15 +248,15 @@ Game.createPlayerTab = function () {
   // Statistics outputs. There's going to be a LOT of these.
   statPanel = document.getElementById("statsOut");
   statPanel.innerHTML = "";
-  statPanel.appendChild(Game.createStatisticPanel("Battles Won", Game.TRACK_WINS, "player_stat11"));
-  statPanel.appendChild(Game.createStatisticPanel("Battles Lost", Game.TRACK_LOSSES, "player_stat12"));
-  statPanel.appendChild(Game.createStatisticPanel("Battles Fled", Game.TRACK_ESCAPES, "player_stat13"));
-  statPanel.appendChild(Game.createStatisticPanel("Current Win Streak", Game.TRACK_WIN_STREAK, "player_stat14"));
-  statPanel.appendChild(Game.createStatisticPanel("Elites / Bosses Defeated", Game.TRACK_BOSS_KILLS, "player_stat16"));
-  statPanel.appendChild(Game.createStatisticPanel("Highest Elite Chance", Game.TRACK_BOSS_CHANCE + "%", "player_stat17"));
-  statPanel.appendChild(Game.createStatisticPanel("Total Experience Gained", Game.TRACK_XP_GAINED, "player_stat20"));
-  statPanel.appendChild(Game.createStatisticPanel("Experience Lost", Game.TRACK_XP_LOST, "player_stat21"));
-  statPanel.appendChild(Game.createStatisticPanel("Experience Overflow Pool", Game.TRACK_XP_OVERFLOW, "player_stat22"));
+  statPanel.appendChild(Game.createStatisticPanel("战斗胜利", Game.TRACK_WINS, "player_stat11"));
+  statPanel.appendChild(Game.createStatisticPanel("战斗失败", Game.TRACK_LOSSES, "player_stat12"));
+  statPanel.appendChild(Game.createStatisticPanel("战斗逃离", Game.TRACK_ESCAPES, "player_stat13"));
+  statPanel.appendChild(Game.createStatisticPanel("当前的连胜", Game.TRACK_WIN_STREAK, "player_stat14"));
+  statPanel.appendChild(Game.createStatisticPanel("精英/Boss打败了", Game.TRACK_BOSS_KILLS, "player_stat16"));
+  statPanel.appendChild(Game.createStatisticPanel("遇见精英最高几率", Game.TRACK_BOSS_CHANCE + "%", "player_stat17"));
+  statPanel.appendChild(Game.createStatisticPanel("获得的总经验", Game.TRACK_XP_GAINED, "player_stat20"));
+  statPanel.appendChild(Game.createStatisticPanel("失去经验", Game.TRACK_XP_LOST, "player_stat21"));
+  statPanel.appendChild(Game.createStatisticPanel("经验溢出池", Game.TRACK_XP_OVERFLOW, "player_stat22"));
   statPanel.appendChild(Game.createStatisticPanel("Item Upgrades Bought", Game.TRACK_UPGRADES, "player_stat23"));
   statPanel.appendChild(Game.createStatisticPanel("Reforges Bought", Game.TRACK_REFORGES, "player_stat24"));
   statPanel.appendChild(Game.createStatisticPanel("Skill/Stat Point Resets", Game.TRACK_RESETS, "player_stat25"));

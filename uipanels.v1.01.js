@@ -458,7 +458,7 @@ Game.createPowerUIPanel = function (powerID, rootID, currentLevel, selectable, b
   if (typeof rootID !== undefined && rootID >= 0) {
     var branchSection = document.createElement("td");
     branchSection.setAttribute("colspan", "4");
-    branchSection.innerHTML = "<span style='font-style:italic'> - Branches from " + Game.getPowerName(rootID) + "</span>";
+    branchSection.innerHTML = "<span style='font-style:italic'> - 需要： " + Game.getPowerName(rootID) + "</span>";
     row2.appendChild(branchSection);
     panel.appendChild(row2);
   }
@@ -985,7 +985,7 @@ Game.createASOptionPanel = function () {
   panel.setAttribute("class", "itemPanel");
   var row1 = document.createElement("tr");
   var nameSection = document.createElement("td");
-  nameSection.innerHTML = "<strong>Autosell Options</strong>";
+  nameSection.innerHTML = "<strong>自动卖出选项</strong>";
   nameSection.setAttribute("colspan", 4);
   nameSection.setAttribute("style", "width:100% !important");
   row1.appendChild(nameSection);
@@ -993,7 +993,7 @@ Game.createASOptionPanel = function () {
   // Poor Items
   var row2 = document.createElement("tr");
   var poorSection = document.createElement("td");
-  poorSection.innerHTML = "<span class='q221'>Poor Items</span>";
+  poorSection.innerHTML = "<span class='q221'>粗糙的装备</span>";
   poorSection.setAttribute("style", "width:40% !important");
   row2.appendChild(poorSection);
   var poorScrap = document.createElement("td");
@@ -1010,7 +1010,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  poorScrapButton.innerHTML = "Scrap";
+  poorScrapButton.innerHTML = "分解";
   poorScrap.appendChild(poorScrapButton);
   row2.appendChild(poorScrap);
   var poorSell = document.createElement("td");
@@ -1027,7 +1027,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  poorSellButton.innerHTML = "Sell";
+  poorSellButton.innerHTML = "出售";
   poorSell.appendChild(poorSellButton);
   row2.appendChild(poorSell);
   var poorIgnore = document.createElement("td");
@@ -1044,14 +1044,14 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  poorIgnoreButton.innerHTML = "Ignore";
+  poorIgnoreButton.innerHTML = "忽略";
   poorIgnore.appendChild(poorIgnoreButton);
   row2.appendChild(poorIgnore);
   panel.appendChild(row2);
   // Normal Items
   var row3 = document.createElement("tr");
   var normalSection = document.createElement("td");
-  normalSection.innerHTML = "<span class='q222'>Normal Items</span>";
+  normalSection.innerHTML = "<span class='q222'>普通装备</span>";
   normalSection.setAttribute("style", "width:40% !important");
   row3.appendChild(normalSection);
   var normalScrap = document.createElement("td");
@@ -1068,7 +1068,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  normalScrapButton.innerHTML = "Scrap";
+  normalScrapButton.innerHTML = "分解";
   normalScrap.appendChild(normalScrapButton);
   row3.appendChild(normalScrap);
   var normalSell = document.createElement("td");
@@ -1085,7 +1085,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  normalSellButton.innerHTML = "Sell";
+  normalSellButton.innerHTML = "出售";
   normalSell.appendChild(normalSellButton);
   row3.appendChild(normalSell);
   var normalIgnore = document.createElement("td");
@@ -1102,14 +1102,14 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  normalIgnoreButton.innerHTML = "Ignore";
+  normalIgnoreButton.innerHTML = "忽略";
   normalIgnore.appendChild(normalIgnoreButton);
   row3.appendChild(normalIgnore);
   panel.appendChild(row3);
   // Good Items
   var row4 = document.createElement("tr");
   var goodSection = document.createElement("td");
-  goodSection.innerHTML = "<span class='q223'>Good Items</span>";
+  goodSection.innerHTML = "<span class='q223'>良好准备</span>";
   goodSection.setAttribute("style", "width:40% !important");
   row4.appendChild(goodSection);
   var goodScrap = document.createElement("td");
@@ -1126,7 +1126,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  goodScrapButton.innerHTML = "Scrap";
+  goodScrapButton.innerHTML = "分解";
   goodScrap.appendChild(goodScrapButton);
   row4.appendChild(goodScrap);
   var goodSell = document.createElement("td");
@@ -1143,7 +1143,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  goodSellButton.innerHTML = "Sell";
+  goodSellButton.innerHTML = "出售";
   goodSell.appendChild(goodSellButton);
   row4.appendChild(goodSell);
   var goodIgnore = document.createElement("td");
@@ -1160,14 +1160,14 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  goodIgnoreButton.innerHTML = "Ignore";
+  goodIgnoreButton.innerHTML = "忽略";
   goodIgnore.appendChild(goodIgnoreButton);
   row4.appendChild(goodIgnore);
   panel.appendChild(row4);
   // Great Items
   var row5 = document.createElement("tr");
   var greatSection = document.createElement("td");
-  greatSection.innerHTML = "<span class='q224'>Great Items</span>";
+  greatSection.innerHTML = "<span class='q224'>优良的准备</span>";
   greatSection.setAttribute("style", "width:40% !important");
   row5.appendChild(greatSection);
   var greatScrap = document.createElement("td");
@@ -1184,7 +1184,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  greatScrapButton.innerHTML = "Scrap";
+  greatScrapButton.innerHTML = "分解";
   greatScrap.appendChild(greatScrapButton);
   row5.appendChild(greatScrap);
   var greatSell = document.createElement("td");
@@ -1201,7 +1201,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  greatSellButton.innerHTML = "Sell";
+  greatSellButton.innerHTML = "出售";
   greatSell.appendChild(greatSellButton);
   row5.appendChild(greatSell);
   var greatIgnore = document.createElement("td");
@@ -1218,14 +1218,14 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  greatIgnoreButton.innerHTML = "Ignore";
+  greatIgnoreButton.innerHTML = "忽略";
   greatIgnore.appendChild(greatIgnoreButton);
   row5.appendChild(greatIgnore);
   panel.appendChild(row5);
   // Amazing Items
   var row6 = document.createElement("tr");
   var amazingSection = document.createElement("td");
-  amazingSection.innerHTML = "<span class='q225'>Amazing Items</span>";
+  amazingSection.innerHTML = "<span class='q225'>传奇装备</span>";
   amazingSection.setAttribute("style", "width:40% !important");
   row6.appendChild(amazingSection);
   var amazingScrap = document.createElement("td");
@@ -1242,7 +1242,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  amazingScrapButton.innerHTML = "Scrap";
+  amazingScrapButton.innerHTML = "分解";
   amazingScrap.appendChild(amazingScrapButton);
   row6.appendChild(amazingScrap);
   var amazingSell = document.createElement("td");
@@ -1259,7 +1259,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  amazingSellButton.innerHTML = "Sell";
+  amazingSellButton.innerHTML = "出售";
   amazingSell.appendChild(amazingSellButton);
   row6.appendChild(amazingSell);
   var amazingIgnore = document.createElement("td");
@@ -1276,7 +1276,7 @@ Game.createASOptionPanel = function () {
       Game.drawActivePanel();
     };
   }();
-  amazingIgnoreButton.innerHTML = "Ignore";
+  amazingIgnoreButton.innerHTML = "忽略";
   amazingIgnore.appendChild(amazingIgnoreButton);
   row6.appendChild(amazingIgnore);
   panel.appendChild(row6);
@@ -1310,7 +1310,7 @@ Game.createSavePanel = function () {
   var saveHeader = document.createElement("td");
   saveHeader.setAttribute("colspan", 3);
   saveHeader.setAttribute("style", "width:75% !important");
-  saveHeader.innerHTML = "<strong>Save Game</strong>"
+  saveHeader.innerHTML = "<strong>保存游戏</strong>"
   var saveButton = document.createElement("td");
   var saveActualButton = document.createElement("span");
   saveActualButton.setAttribute("class", "itemPanelButton");
@@ -1320,7 +1320,7 @@ Game.createSavePanel = function () {
       Game.save(0);
     };
   }();
-  saveActualButton.innerHTML = "Save";
+  saveActualButton.innerHTML = "保存";
   saveButton.appendChild(saveActualButton);
   row1.appendChild(saveHeader);
   row1.appendChild(saveButton);
@@ -1329,14 +1329,14 @@ Game.createSavePanel = function () {
   var saveBlurb = document.createElement("td");
   saveBlurb.setAttribute("colspan", 4);
   saveBlurb.setAttribute("style", "width:100% !important");
-  saveBlurb.innerHTML = "Don't trust the automatic save feature? This button is for you! Works 100% of the time! Honest!"
+  saveBlurb.innerHTML = "不相信自动保存功能吗?这个按钮是给你的!百分百的工作!诚实的!"
   row2.appendChild(saveBlurb);
   panel.appendChild(row2);
   var row3 = document.createElement("tr");
   var resetHeader = document.createElement("td");
   resetHeader.setAttribute("colspan", 3);
   resetHeader.setAttribute("style", "width:75% !important");
-  resetHeader.innerHTML = "<strong>Reset Game</strong>"
+  resetHeader.innerHTML = "<strong>重置游戏</strong>"
   var resetButton = document.createElement("td");
   var resetActualButton = document.createElement("span");
   resetActualButton.setAttribute("class", "itemPanelButton");
@@ -1346,7 +1346,7 @@ Game.createSavePanel = function () {
       Game.reset();
     };
   }();
-  resetActualButton.innerHTML = "Reset";
+  resetActualButton.innerHTML = "重置";
   resetButton.appendChild(resetActualButton);
   row3.appendChild(resetHeader);
   row3.appendChild(resetButton);
@@ -1355,14 +1355,14 @@ Game.createSavePanel = function () {
   var resetBlurb = document.createElement("td");
   resetBlurb.setAttribute("colspan", 4);
   resetBlurb.setAttribute("style", "width:100% !important");
-  resetBlurb.innerHTML = "Fancy a fresh start? We can do that. Push the button and we'll forget this playthrough ever even happened."
+  resetBlurb.innerHTML = "想重新开始吗?我们可以做到。按下按钮，我们就会忘记这个游戏之前发生的一切。"
   row4.appendChild(resetBlurb);
   panel.appendChild(row4);
   var row5 = document.createElement("tr");
   var prestigeHeader = document.createElement("td");
   prestigeHeader.setAttribute("colspan", 3);
   prestigeHeader.setAttribute("style", "width:75% !important");
-  prestigeHeader.innerHTML = "<strong>Prestige (NYI)</strong>"
+  prestigeHeader.innerHTML = "<strong>声望(NYI)</strong>"
   var prestigeButton = document.createElement("td");
   var prestigeActualButton = document.createElement("span");
   prestigeActualButton.setAttribute("class", "itemPanelButton");
@@ -1372,7 +1372,7 @@ Game.createSavePanel = function () {
       Game.prestige();
     };
   }();
-  prestigeActualButton.innerHTML = "Prestige";
+  prestigeActualButton.innerHTML = "声望";
   prestigeButton.appendChild(prestigeActualButton);
   row5.appendChild(prestigeHeader);
   row5.appendChild(prestigeButton);
@@ -1381,7 +1381,7 @@ Game.createSavePanel = function () {
   var prestigeBlurb = document.createElement("td");
   prestigeBlurb.setAttribute("colspan", 4);
   prestigeBlurb.setAttribute("style", "width:100% !important");
-  prestigeBlurb.innerHTML = "Hitting a brick wall? A boss getting you down? Using this handy button, you can start anew and make your next run both faster AND easier!"
+  prestigeBlurb.innerHTML = "碰壁了吗?Boss让你失望了?使用这个方便的按钮，您可以重新开始，并使您的下一次游戏变得更快更容易！"
   row6.appendChild(prestigeBlurb);
   panel.appendChild(row6);
   return panel;
