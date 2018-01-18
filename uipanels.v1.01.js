@@ -213,7 +213,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
         Game.buyWeaponQualityUpgrade();
       };
     }());
-    qualityButton.innerHTML = (weapon[7] === Game.QUALITY_AMAZING ? "Cannot increase weapon quality." : "Increase Weapon Quality for " + Game.calculateItemQualityPrice(weapon[7]) + " scrap");
+    qualityButton.innerHTML = (weapon[7] === Game.QUALITY_AMAZING ? "不能提高武器等阶" : "提高武器等阶需要 " + Game.calculateItemQualityPrice(weapon[7]) + " 碎片");
     qualitySection.appendChild(qualityButton);
     row5.appendChild(levelSection);
     row5.appendChild(qualitySection);
