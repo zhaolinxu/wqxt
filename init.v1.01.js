@@ -468,15 +468,15 @@ Game.prestige = function () {
         Game.repopulateShop();
         Game.TRACK_RESETS += 1;
         Game.giveBadge(Game.BADGE_PRESTIGE);
-        Game.toastNotification("Prestige reset activated.");
+        Game.toastNotification("声望重置已激活。");
         Game.save(true);
         Game.drawActivePanel();
       }
     } else {
-      Game.toastNotification("You cannot prestige until you have cleared the first zone.");
+      Game.toastNotification("只有清理完成了第一个区域后，才能获得声望。");
     }
   } else {
-    Game.toastNotification("You cannot perform a prestige reset when in combat.");
+    Game.toastNotification("在战斗中，你不能执行声望重置。");
   }
 };
 

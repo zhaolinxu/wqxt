@@ -33,7 +33,7 @@ Game.equipWeapon = function (index) {
 Game.discardWeapon = function (index) {
   // Don't let them throw me away!
   var thrownWepName = Game.p_WeaponInventory[index][0].split("|")[0];
-  Game.toastNotification("<span class='q" + Game.p_WeaponInventory[index][7] + "'>" + thrownWepName + "</span> tossed away.");
+  Game.toastNotification("<span class='q" + Game.p_WeaponInventory[index][7] + "'>" + thrownWepName + "</span> 被扔掉了。");
   Game.p_WeaponInventory.splice(index, 1);
   Game.updateInventory = true;
   Game.TRACK_ITEM_DISCARDS += 1;
@@ -47,7 +47,7 @@ Game.sellWeapon = function (index, loud) {
   salePrice = Math.floor(salePrice * (10 + (Game.p_WeaponInventory[index][7] - Game.QUALITY_NORMAL)) / 10);
   soldWepName = Game.p_WeaponInventory[index][0].split("|")[0];
   if (loud) {
-    Game.toastNotification("<span class='q" + Game.p_WeaponInventory[index][7] + "'>" + soldWepName + "</span> sold for " + salePrice + " seeds.");
+    Game.toastNotification("<span class='q" + Game.p_WeaponInventory[index][7] + "'>" + soldWepName + "</span> 出售获得 " + salePrice + " 种子。");
   }
   Game.p_WeaponInventory.splice(index, 1);
   Game.updateInventory = true;
@@ -85,7 +85,7 @@ Game.scrapWeapon = function (index, loud) {
     salePrice += 1;
   }
   if (loud) {
-    Game.toastNotification("<span class='q" + Game.p_WeaponInventory[index][7] + "'>" + scrappedWepName + "</span> converted into " + salePrice + " scrap.");
+    Game.toastNotification("<span class='q" + Game.p_WeaponInventory[index][7] + "'>" + scrappedWepName + "</span> 转换成 " + salePrice + " 碎片。");
   }
   Game.p_WeaponInventory.splice(index, 1);
   Game.updateInventory = true;
@@ -119,7 +119,7 @@ Game.equipArmour = function (index) {
 
 Game.discardArmour = function (index) {
   var thrownArmName = Game.p_ArmourInventory[index][0].split("|")[0];
-  Game.toastNotification("<span class='q" + Game.p_ArmourInventory[index][2] + "'>" + thrownArmName + "</span> tossed away.");
+  Game.toastNotification("<span class='q" + Game.p_ArmourInventory[index][2] + "'>" + thrownArmName + "</span> 被扔掉了");
   Game.p_ArmourInventory.splice(index, 1);
   Game.updateInventory = true;
   Game.TRACK_ITEM_DISCARDS += 1;
@@ -133,7 +133,7 @@ Game.sellArmour = function (index, loud) {
   salePrice = Math.floor(salePrice * (10 + (Game.p_ArmourInventory[index][2] - Game.QUALITY_NORMAL)) / 10);
   soldArmName = Game.p_ArmourInventory[index][0].split("|")[0];
   if (loud) {
-    Game.toastNotification("<span class='q" + Game.p_ArmourInventory[index][2] + "'>" + soldArmName + "</span> sold for " + salePrice + " seeds.");
+    Game.toastNotification("<span class='q" + Game.p_ArmourInventory[index][2] + "'>" + soldArmName + "</span> 出售得到 " + salePrice + " 种子。");
   }
   Game.p_ArmourInventory.splice(index, 1);
   Game.updateInventory = true;
@@ -170,7 +170,7 @@ Game.scrapArmour = function (index, loud) {
     salePrice += 1;
   }
   if (loud) {
-    Game.toastNotification("<span class='q" + Game.p_ArmourInventory[index][2] + "'>" + scrappedArmName + "</span> converted into " + salePrice + " scrap.");
+    Game.toastNotification("<span class='q" + Game.p_ArmourInventory[index][2] + "'>" + scrappedArmName + "</span> converted into " + salePrice + " 碎片。");
   }
   Game.p_ArmourInventory.splice(index, 1);
   Game.updateInventory = true;
@@ -528,7 +528,7 @@ Game.buyWeapon = function (index) {
   purchase = Game.p_WeaponShopStock[index];
   cost = 2 * Game.calculateItemLevelPrice(purchase[1], purchase[7]);
   if (Game.p_WeaponInventory.length === Game.MAX_INVENTORY) {
-    Game.toastNotification("Weapon inventory is full...");
+    Game.toastNotification("武器仓库已满...");
     return 0;
   }
   if (Game.p_Currency >= cost) {

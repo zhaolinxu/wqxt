@@ -227,11 +227,11 @@ Game.makeBoss = function () {
 Game.toggleAutoBattle = function () {
   Game.autoBattle = !Game.autoBattle;
   if (Game.autoBattle) {
-    Game.toastNotification("Auto Battle activated.");
+    Game.toastNotification("自动战斗激活。");
     Game.giveBadge(Game.BADGE_AUTOBATTLE); // Aversion to Clicking
     Game.autoBattleTicker = window.setInterval(Game.autoBattleFunc, 200);
   } else {
-    Game.toastNotification("Auto Battle deactivated.");
+    Game.toastNotification("自动战斗关闭。");
     window.clearInterval(Game.autoBattleTicker);
     Game.autoBattleTicker = null;
   }
@@ -269,7 +269,7 @@ Game.renamePlayer = function () {
   if (userPlayerName.toLowerCase() === "psychemaster") {
     Game.giveBadge(Game.BADGE_DEVNAME); // God Complex
   }
-  Game.toastNotification("Name has been changed.");
+  Game.toastNotification("名称已更改。");
   Game.drawActivePanel();
 };
 
@@ -296,13 +296,13 @@ Game.statReset = function () {
       Game.p_StatPoints += pointCount;
       Game.p_Scrap -= scrapCost;
       Game.TRACK_RESETS += 1;
-      Game.toastNotification("Stat points have been reset.");
+      Game.toastNotification("属性点已重置。");
       Game.drawActivePanel();
     }
   } else if (scrapCost === 0) {
-    Game.toastNotification("No stat points have been assigned.");
+    Game.toastNotification("没有分配属性点。");
   } else {
-    Game.toastNotification("Not enough scrap to reset stat points (Requires " + scrapCost + ")");
+    Game.toastNotification("没有足够的碎片来重置属性点。 (需要 " + scrapCost + ")");
   }
 };
 
