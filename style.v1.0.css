@@ -1,0 +1,356 @@
+body {
+  padding-top: 50px;
+  background: #300000;
+  margin: 0px;
+  min-width: 825px;
+  overflow-y: scroll;
+}
+
+p,
+li {
+  text-align: left;
+}
+
+#badgeList img {
+  background-color: #770000;
+  border: 1px solid #b0b0b0;
+  margin: 3px;
+}
+
+#badgeList img:hover {
+  background-color: #990000;
+}
+
+.hiddenElement {
+  display: none;
+}
+
+.underLineMe {
+  text-decoration: underline;
+}
+
+body * {
+  -webkit-user-select: none;
+  /* webkit (safari, chrome) browsers */
+  -moz-user-select: none;
+  /* mozilla browsers */
+  -khtml-user-select: none;
+  /* webkit (konqueror) browsers */
+  -ms-user-select: none;
+  /* IE10+ */
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #b0b0b0;
+}
+
+input {
+  color: #b0b0b0;
+}
+
+.itemPanel {
+  text-align: left;
+  background-color: #770000;
+  width: 350px !important;
+  border: 1px solid #b0b0b0;
+  border-radius: 0px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 0px;
+  margin: 10px;
+  display: inline-table;
+  vertical-align: top;
+}
+
+.statisticsPanel {
+  text-align: left;
+  background-color: #770000;
+  width: 300px !important;
+  border: 1px solid #b0b0b0;
+  border-radius: 0px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 0px;
+  margin: 2px 4px;
+  display: inline-table;
+}
+
+.personPanel {
+  text-align: left;
+  background-color: #770000;
+  width: 440px !important;
+  border: 1px solid #b0b0b0;
+  border-radius: 0px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 0px;
+  margin: 10px;
+  display: inline-table;
+}
+
+.itemPanel td {
+  width: 25% !important;
+}
+
+.itemPanelButton {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+}
+
+.itemPanelButton:hover {
+  background-color: #990000 !important;
+}
+
+.nonPanelButton {
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #b0b0b0;
+  display: inline;
+  background-color: #770000;
+  padding: 3px 6px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.nonPanelButton:hover {
+  background-color: #990000 !important;
+}
+
+.topBarButton {
+  line-height: 3em;
+  background-color: #660000;
+  text-align: center;
+  padding: 0px 5px;
+  border-color: #990000;
+  border-style: ridge;
+  border-width: 0px 1px;
+  width: 50px;
+}
+
+.topBarButton:hover {
+  background-color: #990000;
+}
+
+#main {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+  z-index: 5;
+}
+
+#rightPanel table {
+  width: 100%;
+}
+
+.tabBar {
+  z-index: 3;
+}
+
+.tabButton {
+  background: #660000;
+  border-radius: 15px 15px 0px 0px;
+  -moz-border-radius: 15px 15px 0px 0px;
+  -webkit-border-radius: 15px 15px 0px 0px;
+  border: 4px outset #666666;
+  padding: 6px;
+  position: relative;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.centerPanel td {
+  padding-bottom: 3px;
+}
+
+.combatLog {
+  padding: 0px 10px;
+}
+
+#logBody div.player {
+  text-align: left;
+  padding-left: 30px;
+}
+
+#logBody div.player>* {
+  color: #33ff33;
+}
+
+#logBody div.enemy {
+  text-align: left;
+  padding-left: 30px;
+}
+
+#logBody div.enemy>* {
+  color: #ff3333;
+}
+
+#logBody div.info {
+  text-align: left;
+  padding-left: 30px;
+}
+
+#logBody div.info>* {
+  color: #dddddd;
+}
+
+.powerName {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.powerHeader,
+.powerHeader span {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.playerInfo td,
+.weaponInfo td,
+.armourInfo td,
+.lastWepInfo td {
+  width: 50%;
+  text-align: center;
+}
+
+.playerInfo td:first-child,
+.weaponInfo td:first-child,
+.armourInfo td:first-child,
+.lastWepInfo td:first-child {
+  text-align: right;
+}
+
+.playerInfo td:only-child,
+.weaponInfo td:only-child,
+.armourInfo td:only-child,
+.lastWepInfo td:only-child {
+  text-align: center;
+}
+
+.titleBar {
+  width: 100%;
+}
+
+.blockHeader {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.footer {
+  position: fixed;
+  z-index: 15;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background: #000000;
+  color: #b0b0b0;
+}
+
+.savePopup {
+  position: fixed;
+  bottom: 35px;
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #b0b0b0;
+  z-index: 10;
+}
+
+.savePopup>span {
+  padding: 5px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 5px outset #666666;
+  background: #000000;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.savePopup span {
+  font-size: 20px;
+}
+
+.playerHPBorder {
+  border: 2px outset #666666;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  z-index: 9;
+  width: 45%;
+  height: 25px;
+  float: left;
+  text-align: left;
+  position: relative;
+}
+
+.enemyHPBorder {
+  border: 2px outset #666666;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  z-index: 9;
+  width: 45%;
+  height: 25px;
+  float: right;
+  text-align: right;
+  position: relative;
+}
+
+.playerHPBar,
+.enemyHPBar {
+  position: relative;
+  z-index: 8;
+  height: 25px;
+}
+
+#playerHPBarText,
+#enemyHPBarText {
+  font-size: 10px;
+  padding: 1px 3px;
+  vertical-align: middle;
+  float: inherit;
+}
+
+.bigButton {
+  border: 3px outset #878787;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 3px;
+  cursor: pointer;
+}
+
+.bigButton:hover {
+  background-color: #991010;
+}
+
+.q221 {
+  color: #808080;
+  font-weight: bold;
+}
+
+.q222 {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.q223 {
+  color: #33cc33;
+  font-weight: bold;
+}
+
+.q224 {
+  color: #4d94ff;
+  font-weight: bold;
+}
+
+.q225 {
+  color: #e600e6;
+  font-weight: bold;
+}
+
+.q226 {
+  color: #ffbf00;
+  font-weight: bold;
+}
