@@ -47,7 +47,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
   nameSection.innerHTML = "<span class='q" + weapon[7] + "' style='font-size:18px !important;'>" + weapon[0].split("|")[0] + "</span>";
   iLvlSection = document.createElement("td");
   iLvlSection.setAttribute("style", "text-align:right");
-  iLvlSection.innerHTML = "Level " + weapon[1];
+  iLvlSection.innerHTML = "等级 " + weapon[1];
   row1.appendChild(nameSection);
   row1.appendChild(iLvlSection);
   panel.appendChild(row1);
@@ -66,10 +66,10 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
     dmgType = "Magic";
     break;
   }
-  dmgSection.innerHTML = "<strong>" + weapon[4] + "</strong> - <strong>" + weapon[5] + "</strong> " + dmgType + " damage (" + weapon[6] + " DPS)";
+  dmgSection.innerHTML = "<strong>" + weapon[4] + "</strong> - <strong>" + weapon[5] + "</strong> " + dmgType + " 伤害 (" + weapon[6] + " 秒伤害)";
   speedSection = document.createElement("td");
   speedSection.setAttribute("style", "text-align:right");
-  speedSection.innerHTML = "Speed " + weapon[3];
+  speedSection.innerHTML = "速度 " + weapon[3];
   row2.appendChild(dmgSection);
   row2.appendChild(speedSection);
   panel.appendChild(row2);
@@ -101,7 +101,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
         Game.startRepair();
       };
     }());
-    repairButton.innerHTML = "Repair";
+    repairButton.innerHTML = "修理";
     repairSection.appendChild(repairButton);
     row4.appendChild(repairSection);
   }
@@ -119,7 +119,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
         Game.equipWeapon(a);
       };
     }(itemSlot));
-    equipButton.innerHTML = "Equip";
+    equipButton.innerHTML = "装备";
     equipSection.appendChild(equipButton);
     row5.appendChild(equipSection);
     sellButton = document.createElement("span");
@@ -130,7 +130,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
         Game.sellWeapon(a, b);
       };
     }(itemSlot, true));
-    sellButton.innerHTML = "Sell";
+    sellButton.innerHTML = "出售";
     sellSection.appendChild(sellButton);
     row5.appendChild(sellSection);
     scrapButton = document.createElement("span");
@@ -141,7 +141,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
         Game.scrapWeapon(a, b);
       };
     }(itemSlot, true));
-    scrapButton.innerHTML = "Scrap";
+    scrapButton.innerHTML = "分解";
     scrapSection.appendChild(scrapButton);
     row5.appendChild(scrapSection);
     discardButton = document.createElement("span");
@@ -152,7 +152,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
         Game.discardWeapon(a);
       };
     }(itemSlot));
-    discardButton.innerHTML = "Discard";
+    discardButton.innerHTML = "丢弃";
     discardSection.appendChild(discardButton);
     row5.appendChild(discardSection);
     panel.appendChild(row5);
@@ -168,7 +168,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
         Game.takeWeapon();
       };
     }());
-    takeButton.innerHTML = "Take this weapon";
+    takeButton.innerHTML = "装备这个武器";
     takeSection.appendChild(takeButton);
     row5.appendChild(takeSection);
     panel.appendChild(row5);
@@ -185,7 +185,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
       };
     }(itemSlot));
     cost = 2 * Game.calculateItemLevelPrice(weapon[1], weapon[7]);
-    buyButton.innerHTML = "Buy this weapon for " + cost + " seeds";
+    buyButton.innerHTML = "购买这个武器消耗 " + cost + " 种子";
     buySection.appendChild(buyButton);
     row5.appendChild(buySection);
     panel.appendChild(row5);
@@ -201,7 +201,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
         Game.buyWeaponLevelUpgrade();
       };
     }());
-    levelButton.innerHTML = "Increase Weapon Level for " + Game.calculateItemLevelPrice(weapon[1], weapon[7]) + " seeds";
+    levelButton.innerHTML = "提升武器等级需要 " + Game.calculateItemLevelPrice(weapon[1], weapon[7]) + " 种子";
     levelSection.appendChild(levelButton);
     qualityButton = document.createElement("span");
     qualitySection = document.createElement("td");
@@ -254,7 +254,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
   nameSection.innerHTML = "<span class='q" + armour[2] + "' style='font-size:18px !important;'>" + armour[0].split("|")[0] + "</span>";
   var iLvlSection = document.createElement("td");
   iLvlSection.setAttribute("style", "text-align:right");
-  iLvlSection.innerHTML = "Level " + armour[1];
+  iLvlSection.innerHTML = "等级 " + armour[1];
   row1.appendChild(nameSection);
   row1.appendChild(iLvlSection);
   panel.appendChild(row1);
@@ -303,7 +303,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
         Game.startRepair();
       };
     }();
-    repairButton.innerHTML = "Repair";
+    repairButton.innerHTML = "修理";
     repairSection.appendChild(repairButton);
     row4.appendChild(repairSection);
   }
@@ -321,7 +321,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
         Game.equipArmour(a);
       };
     }(itemSlot);
-    equipButton.innerHTML = "Equip";
+    equipButton.innerHTML = "装备";
     equipSection.appendChild(equipButton);
     row5.appendChild(equipSection);
     var sellButton = document.createElement("span");
@@ -332,7 +332,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
         Game.sellArmour(a, b);
       };
     }(itemSlot, true);
-    sellButton.innerHTML = "Sell";
+    sellButton.innerHTML = "出售";
     sellSection.appendChild(sellButton);
     row5.appendChild(sellSection);
     var scrapButton = document.createElement("span");
@@ -343,7 +343,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
         Game.scrapArmour(a, b);
       };
     }(itemSlot, true);
-    scrapButton.innerHTML = "Scrap";
+    scrapButton.innerHTML = "分解";
     scrapSection.appendChild(scrapButton);
     row5.appendChild(scrapSection);
     var discardButton = document.createElement("span");
@@ -354,7 +354,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
         Game.discardArmour(a);
       };
     }(itemSlot);
-    discardButton.innerHTML = "Discard";
+    discardButton.innerHTML = "丢弃";
     discardSection.appendChild(discardButton);
     row5.appendChild(discardSection);
     panel.appendChild(row5);
@@ -370,7 +370,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
         Game.takeArmour();
       };
     }();
-    takeButton.innerHTML = "Take this armour";
+    takeButton.innerHTML = "装备这个盔甲";
     takeSection.appendChild(takeButton);
     row5.appendChild(takeSection);
     panel.appendChild(row5);
@@ -387,7 +387,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
         Game.buyArmour(a);
       };
     }(itemSlot);
-    buyButton.innerHTML = "Buy this armour for " + cost + " seeds";
+    buyButton.innerHTML = "买这个盔甲需要 " + cost + " 种子";
     buySection.appendChild(buyButton);
     row5.appendChild(buySection);
     panel.appendChild(row5);
@@ -478,7 +478,7 @@ Game.createPowerUIPanel = function (powerID, rootID, currentLevel, selectable, b
         Game.buyPower(a);
       };
     }(powerID);
-    upgradeButton.innerHTML = "Upgrade this Skill";
+    upgradeButton.innerHTML = "升级技能";
     upgradeSection.appendChild(upgradeButton);
     row4.appendChild(upgradeSection);
     panel.appendChild(row4);
@@ -542,7 +542,7 @@ Game.createPlayerCombatPanel = function () {
       };
     }();
     burstButton.id = "combat_burstButton";
-    burstButton.innerHTML = Game.p_specUsed ? "Burst Unavailable" : (Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "Wild Swings" : "Burst Attack");
+    burstButton.innerHTML = Game.p_specUsed ? "突发不可用" : (Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "Wild Swings" : "突发攻击");
     burstSection.appendChild(burstButton);
     row4.appendChild(burstSection);
     var fleeButton = document.createElement("span");
@@ -555,7 +555,7 @@ Game.createPlayerCombatPanel = function () {
         Game.fleeCombat();
       };
     }();
-    fleeButton.innerHTML = "Flee from Combat";
+    fleeButton.innerHTML = "逃离战斗";
     fleeSection.appendChild(fleeButton);
     row4.appendChild(fleeSection);
     panel.appendChild(row4);
@@ -570,7 +570,7 @@ Game.createPlayerCombatPanel = function () {
         Game.startCombat(x);
       };
     }(true);
-    killButton.innerHTML = "Look for something to kill";
+    killButton.innerHTML = "寻找可以杀死的东西";
     killSection.appendChild(killButton);
     row4.appendChild(killSection);
     panel.appendChild(row4);
@@ -585,7 +585,7 @@ Game.createPlayerCombatPanel = function () {
           Game.startCombat(x, y);
         };
       }(true, true);
-      bossButton.innerHTML = "Enter the boss's lair";
+      bossButton.innerHTML = "进入Boss的巢穴";
       bossSection.appendChild(bossButton);
       row5.appendChild(bossSection);
       panel.appendChild(row5);
@@ -611,24 +611,24 @@ Game.createEnemyCombatPanel = function () {
   var nameSection = document.createElement("td");
   nameSection.setAttribute("colspan", "3");
   nameSection.setAttribute("style", "font-size:18px;font-weight:bold;width:75% !important");
-  nameSection.innerHTML = Game.p_State == Game.STATE_COMBAT ? Game.e_Name : "No Enemies Nearby";
+  nameSection.innerHTML = Game.p_State == Game.STATE_COMBAT ? Game.e_Name : "附近没有敌人";
   var levelSection = document.createElement("td");
   levelSection.setAttribute("style", "text-align:right;");
-  levelSection.innerHTML = Game.p_State == Game.STATE_COMBAT ? "Level " + Game.e_Level : "&nbsp;";
+  levelSection.innerHTML = Game.p_State == Game.STATE_COMBAT ? "等级 " + Game.e_Level : "&nbsp;";
   row1.appendChild(nameSection);
   row1.appendChild(levelSection);
   panel.appendChild(row1);
   var HPSection = document.createElement("td");
   HPSection.setAttribute("colspan", "4");
   HPSection.id = "combat_enemyHealth";
-  HPSection.innerHTML = Game.p_State == Game.STATE_COMBAT ? ("HP: " + prettifyNumber(Game.e_HP) + " / " + prettifyNumber(Game.e_MaxHP) + " (" + Math.floor(Game.e_HP / Game.e_MaxHP * 10000) / 100 + "%)") : "Elite Appearance Chance: " + Game.bossChance + "%";
+  HPSection.innerHTML = Game.p_State == Game.STATE_COMBAT ? ("血量: " + prettifyNumber(Game.e_HP) + " / " + prettifyNumber(Game.e_MaxHP) + " (" + Math.floor(Game.e_HP / Game.e_MaxHP * 10000) / 100 + "%)") : "精英出现的机会: " + Game.bossChance + "%";
   row2.appendChild(HPSection);
   panel.appendChild(row2);
   if (Game.e_Debuff.length > 0) {
     var debuffSection = document.createElement("td");
     debuffSection.setAttribute("colspan", "4");
     debuffSection.id = "combat_enemyDebuff";
-    debuffSection.innerHTML = "<strong>Debuff:</strong> " + Game.e_Debuff[1] + "(" + Game.debuff_names[Game.e_Debuff[0] - Game.DEBUFF_SHRED] + ") - " + Game.enemy_debuffTimer + "s";
+    debuffSection.innerHTML = "<strong>减益效果:</strong> " + Game.e_Debuff[1] + "(" + Game.debuff_names[Game.e_Debuff[0] - Game.DEBUFF_SHRED] + ") - " + Game.enemy_debuffTimer + "s";
     row3.appendChild(debuffSection);
     panel.appendChild(row3);
   }
@@ -698,7 +698,7 @@ Game.createZonePanel = function (zoneID, active) {
         Game.changeZone(a);
       };
     }(zoneID);
-    moveButton.innerHTML = "Move to this Zone";
+    moveButton.innerHTML = "移动到这个区域";
     moveSection.appendChild(moveButton);
     row3.appendChild(moveSection);
     panel.appendChild(row3);
@@ -791,7 +791,7 @@ Game.createABOptionPanel = function () {
   panel.setAttribute("class", "itemPanel");
   var row1 = document.createElement("tr");
   var nameSection = document.createElement("td");
-  nameSection.innerHTML = "<strong>Autobattle Options</strong>";
+  nameSection.innerHTML = "<strong>自动战斗选项</strong>";
   nameSection.setAttribute("colspan", 3);
   nameSection.setAttribute("style", "width:75% !important");
   row1.appendChild(nameSection);
@@ -805,7 +805,7 @@ Game.createABOptionPanel = function () {
       Game.drawActivePanel()
     };
   }();
-  toggleButton.innerHTML = "Turn " + (Game.autoBattle ? "Off" : "On");
+  toggleButton.innerHTML = " " + (Game.autoBattle ? "关闭" : "开启");
   toggleSection.appendChild(toggleButton);
   row1.appendChild(toggleSection);
   panel.appendChild(row1);
@@ -813,7 +813,7 @@ Game.createABOptionPanel = function () {
   var percentSection = document.createElement("td");
   percentSection.setAttribute("colspan", 4);
   percentSection.setAttribute("style", "text-align:center;vertical-align:middle;text-decoration:underline;");
-  percentSection.innerHTML = "Health Percentage to Flee";
+  percentSection.innerHTML = "逃离战斗健康百分比";
   row2.appendChild(percentSection);
   panel.appendChild(row2);
   var row3 = document.createElement("tr");
@@ -890,7 +890,7 @@ Game.createABOptionPanel = function () {
   var percentSection = document.createElement("td");
   percentSection.setAttribute("colspan", 4);
   percentSection.setAttribute("style", "text-align:center;vertical-align:middle;text-decoration:underline;");
-  percentSection.innerHTML = "Durability Percentage to Repair";
+  percentSection.innerHTML = "装备耐久度修复百分比";
   row4.appendChild(percentSection);
   panel.appendChild(row4);
   var row5 = document.createElement("tr");

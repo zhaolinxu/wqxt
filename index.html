@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Realm of Decay</title>
+  <title>腐朽国度</title>
   <link rel="stylesheet" type="text/css" href="style.v1.0.css" />
   <link rel="stylesheet" type="text/css" href="style.v1.1.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,17 +12,17 @@
   <div id="main" class="gameWrapper">
     <div id="headerBlock">
       <!-- All the header stuff.  -->
-      <div style="text-align:center;font-size:18px;font-weight:bold;">Realm of Decay</div>
-      <div style="text-align:center;font-size:10px;">by /u/Psychemaster - Version 1.1
+      <div style="text-align:center;font-size:18px;font-weight:bold;">腐朽国度</div>
+      <div style="text-align:center;font-size:10px;">作者： /u/Psychemaster - 版本号 1.1
       </div>
       <span style="display:block;text-align:right;">
-          Seeds: <span id="seedsOut"></span>&nbsp;Scrap: <span id="scrapOut"></span>
+          种子: <span id="seedsOut"></span>&nbsp;分解: <span id="scrapOut"></span>
       </span>
       <hr style="margin-bottom:9px;" />
       <!-- HP Bars -->
       <div class="fillingBorder">
         <img id="player_HPBarOut" class="fillingBar" src="Clear.gif" />
-        <div id="player_HPBarText" class="fillingText">HP: <span id="player_currentHPOut"></span>/<span id="player_maxHPOut"></span> (<span id="player_percentHPOut"></span>)</div>
+        <div id="player_HPBarText" class="fillingText">血量: <span id="player_currentHPOut"></span>/<span id="player_maxHPOut"></span> (<span id="player_percentHPOut"></span>)</div>
       </div>
       <div class="reverseFillingBorder">
         <img id="player_XPBarOut" class="fillingBar" src="Clear.gif" />
@@ -30,68 +30,68 @@
       </div>
       <!-- Text below HP bars -->
       <div id="playerNameOut" title="Rename your character." style="cursor:pointer;float:left;font-weight:bold;font-size:16px;" onclick="Game.renamePlayer();"></div>
-      <div id="enemyNameOut" title="Activate Burst Attack." style="cursor:pointer;float:right;text-align:right;font-weight:bold;font-size:16px;" onclick="Game.burstAttack();"></div>
-      <div id="noEnemyOut" title="Look for something to kill." style="cursor:pointer;float:right;text-align:right;font-weight:bold;font-size:16px" onclick="Game.startCombat(true);" class="hiddenElement">Click here to enter combat.</div>
+      <div id="enemyNameOut" title="激活突发攻击" style="cursor:pointer;float:right;text-align:right;font-weight:bold;font-size:16px;" onclick="Game.burstAttack();"></div>
+      <div id="noEnemyOut" title="Look for something to kill." style="cursor:pointer;float:right;text-align:right;font-weight:bold;font-size:16px" onclick="Game.startCombat(true);" class="hiddenElement">点击这里进入战斗。</div>
       <hr style="margin-top:4.5em;"/>
       <!-- Tabs -->
       <div class="header" id="topBar">
-        <span class="headerTab" id="playerTab">Player<span id="header_statPoints" class="indicator"></span></span>
-        <span class="headerTab" id="combatTab">Combat<span id="header_combatState" class="indicator"></span></span>
-        <span class="headerTab" id="zoneTab">Zones</span>
-        <span class="headerTab" id="skillsTab">Skills<span id="header_skillPoints" class="indicator"></span></span>
-        <span class="headerTab" id="inventoryTab">Items<span id="header_inventoryState" class="indicator"></span></span>
-        <span class="headerTab" id="storeTab">Store</span>
-        <span class="headerTab" id="optionsTab">Options</span>
-        <span class="headerTab" id="helpTab">Help</span>
-        <span class="headerTab" id="updateTab">Updates</span>
-        <span class="headerTab" id="badgeTab">Badges</span>
+        <span class="headerTab" id="playerTab">玩家<span id="header_statPoints" class="indicator"></span></span>
+        <span class="headerTab" id="combatTab">战斗<span id="header_combatState" class="indicator"></span></span>
+        <span class="headerTab" id="zoneTab">区域</span>
+        <span class="headerTab" id="skillsTab">技能<span id="header_skillPoints" class="indicator"></span></span>
+        <span class="headerTab" id="inventoryTab">物品<span id="header_inventoryState" class="indicator"></span></span>
+        <span class="headerTab" id="storeTab">商店</span>
+        <span class="headerTab" id="optionsTab">选项</span>
+        <span class="headerTab" id="helpTab">帮助</span>
+        <span class="headerTab" id="updateTab">更新日志</span>
+        <span class="headerTab" id="badgeTab">徽章</span>
       </div>
     </div>
     <div id="playerTable" class="rootTable" style="display:none;">
       <!-- Stat allocation table -->
       <table style="width:100%;table-layout:fixed;">
         <tr id="player_statPointHeader">
-          <td colspan="4"><span style="font-size:20px;font-weight:bold;">Stat Point Allocation</span><br /><span style="margin-left:0.5em;" id="player_statPointHeaderOut"></span> points free: </td>
-          <td colspan="2" style="text-align:center;"><span class="headerTab" style="width:auto;padding:10px;" onclick="Game.statReset();">Reset Your Stats</span></td>
+          <td colspan="4"><span style="font-size:20px;font-weight:bold;">属性点分配</span><br /><span style="margin-left:0.5em;" id="player_statPointHeaderOut"></span> 未分配技能点: </td>
+          <td colspan="2" style="text-align:center;"><span class="headerTab" style="width:auto;padding:10px;" onclick="Game.statReset();">重置属性点</span></td>
         </tr>
         <tr>
-          <td colspan="4"><div style="font-weight:bold;font-size:18px;">Strength (<span id="player_strPointsBase" style="font-size:18px;"></span><span id="player_strPointsAssigned" class="q223" style="font-size:18px;"></span>)</div>
-            <div style="margin-left:0.5em;">Increases damage dealt with melee weapons.<br />Increases chance to block attacks by <span id="player_statPointBlockChance"></span>%.</div>
+          <td colspan="4"><div style="font-weight:bold;font-size:18px;">力量 (<span id="player_strPointsBase" style="font-size:18px;"></span><span id="player_strPointsAssigned" class="q223" style="font-size:18px;"></span>)</div>
+            <div style="margin-left:0.5em;">增加近战武器伤害。<br />增加格挡攻击的几率 <span id="player_statPointBlockChance"></span>%.</div>
           </td>
           <td colspan="2" style="text-align:center;" class="statAddButtons">
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_STR, 1);">+1 STR</span>
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_STR, 10);">+10 STR</span>
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_STR, 1000000);">+ALL STR</span>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="4"><div style="font-weight:bold;font-size:18px;">Dexterity (<span id="player_dexPointsBase" style="font-size:18px;"></span><span id="player_dexPointsAssigned" class="q223" style="font-size:18px;"></span>)</div>
-            <div style="margin-left:0.5em;">Increases damage dealt with ranged weapons.<br />Increases chance to critically strike by <span id="player_statPointCritChance"></span>%.</div>
-          </td>
-          <td colspan="2" style="text-align:center;" class="statAddButtons">
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_DEX, 1);">+1 DEX</span>
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_DEX, 10);">+10 DEX</span>
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_DEX, 1000000);">+ALL DEX</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_STR, 1);">+1 力量</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_STR, 10);">+10 力量</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_STR, 1000000);">全部+力量</span>
           </td>
         </tr>
         <tr>
-          <td colspan="4"><div style="font-weight:bold;font-size:18px;">Intelligence (<span id="player_intPointsBase" style="font-size:18px;"></span><span id="player_intPointsAssigned" class="q223" style="font-size:18px;"></span>)</div>
-            <div style="margin-left:0.5em;">Increases damage dealt with magic weapons.<br />Increases chance to dodge attacks by <span id="player_statPointDodgeChance"></span>%.</div>
+          <td colspan="4"><div style="font-weight:bold;font-size:18px;">灵巧 (<span id="player_dexPointsBase" style="font-size:18px;"></span><span id="player_dexPointsAssigned" class="q223" style="font-size:18px;"></span>)</div>
+            <div style="margin-left:0.5em;">增加远程武的器伤害。<br />增加致命打击的几率 <span id="player_statPointCritChance"></span>%.</div>
           </td>
           <td colspan="2" style="text-align:center;" class="statAddButtons">
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_INT, 1);">+1 INT</span>
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_INT, 10);">+10 INT</span>
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_INT, 1000000);">+ALL INT</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_DEX, 1);">+1 灵巧</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_DEX, 10);">+10 灵巧</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_DEX, 1000000);">全部+灵巧</span>
           </td>
         </tr>
         <tr>
-          <td colspan="4"><div style="font-weight:bold;font-size:18px;">Constitution (<span id="player_conPointsBase" style="font-size:18px;"></span><span id="player_conPointsAssigned" class="q223" style="font-size:18px;"></span>)</div>
-            <div style="margin-left:0.5em;">Increases maximum health and health restored when idle.<br />Gives a <span id="player_statPointHealChance"></span>% chance to gain HP equal to your constitution when attacking.</div>
+          <td colspan="4"><div style="font-weight:bold;font-size:18px;">智力 (<span id="player_intPointsBase" style="font-size:18px;"></span><span id="player_intPointsAssigned" class="q223" style="font-size:18px;"></span>)</div>
+            <div style="margin-left:0.5em;">增加魔法武器的伤害。<br />增加躲避攻击的几率 <span id="player_statPointDodgeChance"></span>%.</div>
           </td>
           <td colspan="2" style="text-align:center;" class="statAddButtons">
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_CON, 1);">+1 CON</span>
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_CON, 10);">+10 CON</span>
-            <span class="headerTab" onclick="Game.addStat(Game.STAT_CON, 1000000);">+ALL CON</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_INT, 1);">+1 智力</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_INT, 10);">+10 智力</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_INT, 1000000);">全部+智力</span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4"><div style="font-weight:bold;font-size:18px;">体质 (<span id="player_conPointsBase" style="font-size:18px;"></span><span id="player_conPointsAssigned" class="q223" style="font-size:18px;"></span>)</div>
+            <div style="margin-left:0.5em;">增加血量上限和空闲时恢复血量的数量。<br />有 <span id="player_statPointHealChance"></span>% 的机会在攻击时获得与你的体质相等的血量。</div>
+          </td>
+          <td colspan="2" style="text-align:center;" class="statAddButtons">
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_CON, 1);">+1 体质</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_CON, 10);">+10 体质</span>
+            <span class="headerTab" onclick="Game.addStat(Game.STAT_CON, 1000000);">全部+体质</span>
           </td>
         </tr>
       </table>
@@ -104,15 +104,15 @@
           </td>
         </tr>
       </table>
-      <div class="powerHeader">Statistics</div>
+      <div class="powerHeader">统计</div>
       <div class="playerStatistics" style="padding:5px 0px;">
         <span style="font-size:16px;font-weight:bold;margin-left:0.5em;">Offense</span><br />
-        <span style="font-size:14px;margin-left:1em;">Total Damage Dealt: <span id="player_statTotalDMG"></span> over <span id="player_statAttacks"></span> attack(s).</span><br />
-        <span style="margin-left:1.5em">Melee Damage: <span id="player_statMeleeOut"></span></span><br />
-        <span style="margin-left:1.5em">Ranged Damage: <span id="player_statRangedOut"></span></span><br />
-        <span style="margin-left:1.5em">Magic Damage: <span id="player_statMagicOut"></span></span><br />
-        <span style="margin-left:1em;">Most damage dealt in one hit: <span id="player_statBiggestHitOut"></span></span><br /><br />
-        <span style="margin-left:1em;">Burst Attacks activated: <span id="player_statBursts"></span></span><br /><br />
+        <span style="font-size:14px;margin-left:1em;">总计造成的伤害: <span id="player_statTotalDMG"></span> 通过 <span id="player_statAttacks"></span> 攻击.</span><br />
+        <span style="margin-left:1.5em">近战伤害: <span id="player_statMeleeOut"></span></span><br />
+        <span style="margin-left:1.5em">远程伤害: <span id="player_statRangedOut"></span></span><br />
+        <span style="margin-left:1.5em">魔法伤害: <span id="player_statMagicOut"></span></span><br />
+        <span style="margin-left:1em;">一次命中造成的最大伤害: <span id="player_statBiggestHitOut"></span></span><br /><br />
+        <span style="margin-left:1em;">突发攻击激活: <span id="player_statBursts"></span></span><br /><br />
         <span style="margin-left:1em;">Debuffs applied: <span id="player_statDebuffsOut"></span></span><br />
         <span style="margin-left:1.5em;">Enemies killed instantly with Doom: <span id="player_statDoomKills"></span></span><br />
         <span style="margin-left:1.5em;">Enemies awoken from Sleep: <span id="player_statSleepBreaksOut"></span></span><br />
@@ -122,7 +122,7 @@
         <span style="margin-left:1.5em;">Enemy attacks stopped with Paralysis: <span id="player_statParahaxOut"></span></span>
       </div>
       <div class="playerStatistics" style="padding:5px 0px;">
-        <span style="font-size:16px;font-weight:bold;margin-left:0.5em;">Defense</span><br />
+        <span style="font-size:16px;font-weight:bold;margin-left:0.5em;">防御</span><br />
         <span style="font-size:14px;margin-left:1em;">Total Damage Taken: <span id="player_statTotalDMGTaken"></span> over <span id="player_statAttacksTaken"></span> attack(s).</span><br />
         <span style="margin-left:1.5em">Melee Damage: <span id="player_statMeleeIn"></span></span><br />
         <span style="margin-left:1.5em">Ranged Damage: <span id="player_statRangedIn"></span></span><br />
@@ -137,7 +137,7 @@
         <span style="margin-left:1.5em;">Attacks lost to paralysis: <span id="player_statParahaxIn"></span></span><br />
       </div>
       <div class="playerStatistics" style="padding:5px 0px;">
-        <span style="font-size:16px;font-weight:bold;margin-left:0.5em;">Inventory</span>
+        <span style="font-size:16px;font-weight:bold;margin-left:0.5em;">库存</span>
       </div>
       <table>
         <!-- Stats -->
@@ -171,7 +171,7 @@
             </tr>
             <tr>
               <td>
-                <div class="powerHeader">Combat Log</div>
+                <div class="powerHeader">战斗日志</div>
                 <div id="logBody"></div>
               </td>
             </tr>
@@ -179,13 +179,13 @@
           <table id="zoneTable" class="rootTable" style="display:none;">
             <tr>
               <td>
-                <div class="powerHeader">Current Zone</div>
+                <div class="powerHeader">当前区域</div>
                 <div id="currentZone"></div>
               </td>
             </tr>
             <tr>
               <td>
-                <div class="powerHeader">Zone List</div>
+                <div class="powerHeader">区域列表</div>
                 <div id="zoneList"></div>
             </tr>
           </table>
@@ -195,7 +195,7 @@
                 <table id="availableSkills" class="availableSkillsPanel">
                   <tr>
                     <td id="availableSkillsHeader">
-                      <div class="powerHeader">Available Skills (<span id="powerPointsOut"></span> points available):</div>
+                      <div class="powerHeader">可用技能点 (<span id="powerPointsOut"></span> 点可用):</div>
                     </td>
                   </tr>
                   <tr id="available_row">
@@ -211,23 +211,23 @@
                     <td id="available_area_special"></td>
                   </tr>
                 </table>
-                <div class="powerHeader">Selected Skills</div>
+                <div class="powerHeader">选择技能</div>
                 <table id="purchasedPowers" class="availableSkillsPanel">
                   <tr>
                     <td id="purchased_area"></td>
                   </tr>
                 </table>
-                <span class="nonPanelButton" id="powerReset" onclick="Game.resetPowers();">Reset your Skills</span>
+                <span class="nonPanelButton" id="powerReset" onclick="Game.resetPowers();">重置你的技能</span>
               </td>
             </tr>
           </table>
           <table id="inventoryTable" class="rootTable" style="display:none;">
             <tr id="cleanup">
-              <td><span class="nonPanelButton" onclick="Game.automaticInventoryClear();">Clean Inventory</span></td>
+              <td><span class="nonPanelButton" onclick="Game.automaticInventoryClear();">清理仓库</span></td>
             </tr>
             <tr id="enemyItems" style="display:none;">
               <td>
-                <div class="powerHeader">Enemy Inventory</div>
+                <div class="powerHeader">敌人库存</div>
               </td>
             </tr>
             <tr>
@@ -237,7 +237,7 @@
             </tr>
             <tr id="weaponCache" style="display:none;">
               <td>
-                <div class="powerHeader">Weapon Cache</div>
+                <div class="powerHeader">武器仓库</div>
               </td>
             </tr>
             <tr>
@@ -247,7 +247,7 @@
             </tr>
             <tr id="armourCache" style="display:none;">
               <td>
-                <div class="powerHeader">Armour Cache</div>
+                <div class="powerHeader">装备仓库</div>
               </td>
             </tr>
             <tr>
@@ -532,7 +532,7 @@
                             </ul>
                           </li>
                           <li>
-                            <strong>Pickpocket</strong>
+                            <strong>扒手</strong>
                             <ul>
                               <li>Now has 5 ranks available (down from 10).</li>
                             </ul>

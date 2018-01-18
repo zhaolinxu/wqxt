@@ -98,11 +98,11 @@ Game.updateTitleBar = function () {
   }
   // Player's Name
   playerName = document.getElementById("playerNameOut");
-  playerName.innerHTML = Game.p_Name + " (Lv. " + Game.p_Level + ")";
+  playerName.innerHTML = Game.p_Name + " (等级. " + Game.p_Level + ")";
   // Enemy Name (if applicable)
   enemyName = document.getElementById("enemyNameOut");
   noEnemy = document.getElementById("noEnemyOut");
-  enemyName.innerHTML = Game.p_State === Game.STATE_COMBAT ? "(Lv. " + Game.e_Level + ") " + Game.e_Name : "";
+  enemyName.innerHTML = Game.p_State === Game.STATE_COMBAT ? "(等级 " + Game.e_Level + ") " + Game.e_Name : "";
   if (Game.p_State !== Game.STATE_COMBAT) {
     enemyName.classList.add("hiddenElement");
     noEnemy.classList.remove("hiddenElement");
@@ -155,7 +155,7 @@ Game.updateTitleBar = function () {
   EHBText = document.getElementById("player_XPBarText");
   Prefix = document.getElementById("player_currentXPPrefix");
   if (Game.p_State !== Game.STATE_COMBAT) {
-    Prefix.innerHTML = "EXP:";
+    Prefix.innerHTML = "经验值:";
     EHB.style.display = "";
     EH_Percent = Game.p_EXP / Game.p_NextEXP;
     EHB.style.background = "#0099ff";
@@ -163,7 +163,7 @@ Game.updateTitleBar = function () {
     EHB.style.MozTransition = "width 0.5s";
     EHB.style.WebkitTransition = "width 0.5s";
   } else {
-    Prefix.innerHTML = "Enemy HP:";
+    Prefix.innerHTML = "敌人血量:";
     EHB.style.display = "";
     EH_Percent = Game.e_HP / Game.e_MaxHP;
     if (EH_Percent < 0.25) {
@@ -619,7 +619,7 @@ Game.updateCombatTab = function () {
   
   updateElementIDContent("combat_playerDebuff", "<strong>Debuff:</strong> " + Game.p_Debuff[1] + "(" + Game.debuff_names[Game.p_Debuff[0] - Game.DEBUFF_SHRED] + ") - " + Game.player_debuffTimer + "s");
   
-  updateElementIDContent("combat_burstButton", Game.p_specUsed ? "Burst Unavailable" : (Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "Wild Swings" : "Burst Attack"));
+  updateElementIDContent("combat_burstButton", Game.p_specUsed ? "突发不可用" : (Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "Wild Swings" : "突发攻击"));
   
   updateElementIDContent("combat_playerWeaponDurability", Game.p_Weapon[8] + " uses");
 

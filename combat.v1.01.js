@@ -129,7 +129,7 @@ Game.playerCombatTick = function (isBurst) {
               Game.specResetInterval = null;
             }
             Game.p_specUsed = false;
-            Game.combatLog("player", "<span class='q222'>Bloodlust</span> refreshed the cooldown on your " + Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "Wild Swings!" : "Burst Attack!");
+            Game.combatLog("player", "<span class='q222'>Bloodlust</span> refreshed the cooldown on your " + Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "Wild Swings!" : "突发攻击!");
           }
         }
         if (Game.powerLevel(Game.SKILL_OVERCHARGE) > 0) {
@@ -435,7 +435,7 @@ Game.enemyCombatTick = function () {
       Game.combatLog("player", "You dodged the incoming attack.");
       if (Game.p_specUsed && Game.powerLevel(Game.SKILL_ARTFUL_DODGER) > 0) {
         // Artful Dodger
-        Game.combatLog("player", "<span class='q222'>Artful Dodger</span> refreshed your Burst Attack!");
+        Game.combatLog("player", "<span class='q222'>Artful Dodger</span> refreshed your 突发攻击!");
         window.clearTimeout(Game.specResetInterval);
         Game.specResetInterval = null;
         Game.p_specUsed = false;

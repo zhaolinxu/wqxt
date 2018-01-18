@@ -297,7 +297,7 @@ Game.init = function () {
   this.BADGE_ZONE11 = 2071; // Too Hot To Handle
   this.BADGE_ZONE12 = 2072; // A Long Way Down
   // Player variables
-  this.p_Name = "Generic Player Name";
+  this.p_Name = "通用玩家名";
   this.p_HP = 0;
   this.p_MaxHP = 0;
   this.p_Str = 0;
@@ -583,7 +583,7 @@ Game.save = function (auto) {
   STS.prestigeLevel = Game.prestigeLevel;
   STS.GAME_VERSION = Game.GAME_VERSION;
   window.localStorage.setItem("gameSave", JSON.stringify(STS));
-  Game.toastNotification("Game saved.");
+  Game.toastNotification("游戏已保存");
   if (!auto) {
     Game.giveBadge(Game.BADGE_MANUALSAVE); // Trust Issues
   } else {

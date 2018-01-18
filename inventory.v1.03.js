@@ -20,7 +20,7 @@ Game.equipWeapon = function (index) {
   Game.p_WeaponInventory[index] = currentWep.slice(0);
   Game.updateInventory = true;
   Game.updateForge = true;
-  Game.toastNotification("Equipped <span class='q" + Game.p_Weapon[7] + "'>" + Game.p_Weapon[0].split("|")[0] + "</span>.");
+  Game.toastNotification("已装备 <span class='q" + Game.p_Weapon[7] + "'>" + Game.p_Weapon[0].split("|")[0] + "</span>.");
   Game.badgeCheck(Game.BADGE_BOSSGEAR); // Like a Boss
   Game.badgeCheck(Game.BADGE_BLUE); // Blue in the Face
   Game.badgeCheck(Game.BADGE_PURPLE); // Tastes Like Purple
@@ -107,7 +107,7 @@ Game.equipArmour = function (index) {
   Game.p_ArmourInventory[index] = currentArm.slice(0);
   Game.updateInventory = true;
   Game.updateForge = true;
-  Game.toastNotification("Equipped <span class='q" + Game.p_Armour[2] + "'>" + Game.p_Armour[0].split("|")[0] + "</span>.");
+  Game.toastNotification("已装备 <span class='q" + Game.p_Armour[2] + "'>" + Game.p_Armour[0].split("|")[0] + "</span>.");
   Game.badgeCheck(Game.BADGE_BOSSGEAR); // Like a Boss
   Game.badgeCheck(Game.BADGE_BLUE); // Blue in the Face
   Game.badgeCheck(Game.BADGE_PURPLE); // Tastes Like Purple

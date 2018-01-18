@@ -325,9 +325,9 @@ Game.armour_special = [
   "Rune Platebody|At least one dragon died in the making of this armour."
 ];
 Game.SKILL_LIST = [
-  ["Pickpocket", "Increases seed gains from combat by 5% per rank.", 101],
-  ["Cavity Search", "Adds a 2% chance per rank to triple seed gains from combat.", 1011],
-  ["Bartering", "Reduces seed prices by 3% per rank.", 1012],
+  ["扒手", "从战斗中获得每等级5%的种子增益。", 101],
+  ["空腔搜索", "每级增加2%的几率，从战斗中获得3倍的种子收益。", 1011],
+  ["物物交换", "每级降低3%的种子价格。", 1012],
   ["Thorough Looting", "Adds a 2% chance per rank to salvage scrap from defeated enemies.", 10111],
   ["Haggling", "Increases seeds received from selling items by 5% per rank.", 10121],
   ["Five-Finger Discount", "Adds a 1% chance per rank to steal seeds equal to your character level when attacking.", 101211],
@@ -349,7 +349,7 @@ Game.SKILL_LIST = [
   ["Expose Weakness", "Adds 2% per rank to the debuff application rate.", 10222],
   ["Empowered Flurry", "Adds 5% per level to the damage of Flurry's secondary strike.", 102111],
   ["Sneak Attack", "Adds 10% per rank to your chance to strike first in combat.", 102211],
-  ["Bloodlust", "Critical strikes refresh the cooldown on your Burst Attack", 102212],
+  ["Bloodlust", "Critical strikes refresh the cooldown on your 突发攻击", 102212],
   ["Press The Advantage", "Using Burst Attack on a debuffed foe reduces its cooldown by 1 second per rank.", 102221],
   ["Terminal Illness", "Allows debuff timers to be refreshed when reapplied.", 102222],
   ["Wild Swings", "Augments your Burst Attack to deal an additional hit per rank, but reduces its damage by 50%.", 1021111],

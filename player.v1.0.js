@@ -250,14 +250,14 @@ Game.powerLevel = function (power) {
 Game.renamePlayer = function () {
   var validPlayerName = false, userPlayerName = "";
   while (!validPlayerName) {
-    userPlayerName = prompt("Please provide a new name for yourself.\n\n(Max 20 characters)");
+    userPlayerName = prompt("请为自己起一个新的名字。\n\n(最多 20 个字符)");
     if (userPlayerName === null) {
       return 0;
     }
     if (userPlayerName.length > 20) {
-      alert("The text provided was too long, please try something shorter.");
+      alert("所提供的文字太长了，请试一试更短的。");
     } else if (/[<>|]/g.test(userPlayerName)) {
-      alert("The text provided contained invalid characters, please try something else.");
+      alert("所提供的文本包含无效字符，请尝试其他内容。");
     } else {
       userPlayerName = userPlayerName.replace(/[<>|]/g, "");
       validPlayerName = true;
