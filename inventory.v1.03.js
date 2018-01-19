@@ -873,30 +873,30 @@ Game.reforgeWeapon = function (debuff, isSuperior) {
     switch (debuff) {
     case 241:
       if (isSuperior) {
-        Game.p_Weapon[9] = [241, (dbName.trim() === "" ? "Ruthlessness" : dbName), 15, -1];
+        Game.p_Weapon[9] = [241, (dbName.trim() === "" ? "冷酷无情" : dbName), 15, -1];
       } else {
-        Game.p_Weapon[9] = [241, "Ruthlessness", 10, -1];
+        Game.p_Weapon[9] = [241, "冷酷无情", 10, -1];
       }
       break;
     case 242:
       if (isSuperior) {
-        Game.p_Weapon[9] = [242, (dbName.trim() === "" ? "Frenzy" : dbName), 15, 70];
+        Game.p_Weapon[9] = [242, (dbName.trim() === "" ? "狂暴" : dbName), 15, 70];
       } else {
-        Game.p_Weapon[9] = [242, "Frenzy", 10, 50];
+        Game.p_Weapon[9] = [242, "狂暴", 10, 50];
       }
       break;
     case 243:
       if (isSuperior) {
         Game.p_Weapon[9] = [243, (dbName.trim() === "" ? "嗜血" : dbName), 15, 30];
       } else {
-        Game.p_Weapon[9] = [243, "Bloodthirst", 10, 20];
+        Game.p_Weapon[9] = [243, "嗜血", 10, 20];
       }
       break;
     case 244:
       if (isSuperior) {
         Game.p_Weapon[9] = [244, (dbName.trim() === "" ? "削弱" : dbName), 15, 25];
       } else {
-        Game.p_Weapon[9] = [244, "Cripple", 10, 15];
+        Game.p_Weapon[9] = [244, "削弱", 10, 15];
       }
       break;
     case 245:
@@ -904,37 +904,37 @@ Game.reforgeWeapon = function (debuff, isSuperior) {
       break;
     case 246:
       if (isSuperior) {
-        Game.p_Weapon[9] = [246, (dbName.trim() === "" ? "Wound Poison" : dbName), 15, 30];
+        Game.p_Weapon[9] = [246, (dbName.trim() === "" ? "致伤毒药" : dbName), 15, 30];
       } else {
-        Game.p_Weapon[9] = [246, "Wound Poison", 10, 20];
+        Game.p_Weapon[9] = [246, "致伤毒药", 10, 20];
       }
       break;
     case 247:
       if (isSuperior) {
-        Game.p_Weapon[9] = [247, (dbName.trim() === "" ? "Nerve Strike" : dbName), 15, 25];
+        Game.p_Weapon[9] = [247, (dbName.trim() === "" ? "神经攻击" : dbName), 15, 25];
       } else {
-        Game.p_Weapon[9] = [247, "Nerve Strike", 10, 15];
+        Game.p_Weapon[9] = [247, "神经攻击", 10, 15];
       }
       break;
     case 248:
       if (isSuperior) {
-        Game.p_Weapon[9] = [248, (dbName.trim() === "" ? "Mounting Dread" : dbName), 5, 10];
+        Game.p_Weapon[9] = [248, (dbName.trim() === "" ? "与日俱增的恐惧" : dbName), 5, 10];
       } else {
-        Game.p_Weapon[9] = [248, "Mounting Dread", 5, 6];
+        Game.p_Weapon[9] = [248, "与日俱增的恐惧", 5, 6];
       }
       break;
     case 249:
       if (isSuperior) {
-        Game.p_Weapon[9] = [249, (dbName.trim() === "" ? "Disarmed" : dbName), 15, -1];
+        Game.p_Weapon[9] = [249, (dbName.trim() === "" ? "解除武装" : dbName), 15, -1];
       } else {
-        Game.p_Weapon[9] = [249, "Disarmed", 10, -1];
+        Game.p_Weapon[9] = [249, "解除武装", 10, -1];
       }
       break;
     case 250:
       if (isSuperior) {
-        Game.p_Weapon[9] = [250, (dbName.trim() === "" ? "Comatose" : dbName), 15, 10];
+        Game.p_Weapon[9] = [250, (dbName.trim() === "" ? "昏睡" : dbName), 15, 10];
       } else {
-        Game.p_Weapon[9] = [250, "Comatose", 10, 20];
+        Game.p_Weapon[9] = [250, "昏睡", 10, 20];
       }
       break;
     }

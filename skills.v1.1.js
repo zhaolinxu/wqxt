@@ -23,13 +23,13 @@ Game.buyPower = function (power) {
       // case Game.BOOST_HEALINGPOTION:
       // case Game.BOOST_DEBUFFPOTION:
       if (selectionLevel === 1) {
-        Game.toastNotification("This skill is at maximum level.");
+        Game.toastNotification("该技能已达到最高级。");
         canUpgrade = false;
       }
       break;
     default:
       if (selectionLevel === 5) {
-        Game.toastNotification("This skill is at maximum level.");
+        Game.toastNotification("该技能已达到最高级。");
         canUpgrade = false;
       }
     }
@@ -38,14 +38,14 @@ Game.buyPower = function (power) {
       case Game.SKILL_ABSORPTION_SHIELD:
         // Absorption Shield
         if (Game.powerLevel(Game.SKILL_REFLECTIVE_SHIELD) > 0) {
-          Game.toastNotification("This skill cannot be used in conjunction with Reflective Shield.");
+          Game.toastNotification("此技能不能与反射盾一起使用。");
           canUpgrade = false;
         }
         break;
       case Game.SKILL_REFLECTIVE_SHIELD:
         // Reflective Shield
         if (Game.powerLevel(Game.SKILL_ABSORPTION_SHIELD) > 0) {
-          Game.toastNotification("This skill cannot be used in conjunction with Absorption Shield.");
+          Game.toastNotification("此技能不能与吸收盾一起使用。");
           canUpgrade = false;
         }
         break;
@@ -78,7 +78,7 @@ Game.buyPower = function (power) {
       Game.p_SkillPoints -= 1;
       Game.updateSkills = true;
     } else {
-      Game.toastNotification("Skill purchase failed.");
+      Game.toastNotification("技能购买失败。");
     }
   }
   Game.badgeCheck(Game.BADGE_POWER); // Unlimited Power!
@@ -170,14 +170,14 @@ Game.resetPowers = function () {
   }
   scrapCost = Math.ceil((totalSpent + Game.p_SkillPoints) / 3);
   if (Game.p_Scrap < scrapCost) {
-    Game.toastNotification("You need " + scrapCost + " scrap to reset your skills.");
+    Game.toastNotification("你需要 " + scrapCost + " 碎片来重置你的技能点。");
     return;
   }
-  if (confirm("Are you sure you wish to reset your skill point allocation? \n\nThis will cost a total of " + scrapCost + " scrap and cannot be undone.")) {
+  if (confirm("您确定要重置您的技能点分配吗? \n\n这将花费 " + scrapCost + " 碎片并且不能撤销。")) {
     Game.p_Powers = [];
     Game.p_SkillPoints += totalSpent;
     Game.p_Scrap -= scrapCost;
-    Game.toastNotification("Skill points have been reset.");
+    Game.toastNotification("技能点已重置。");
     Game.updateSkills = true;
     Game.TRACK_RESETS += 1;
     Game.badgeCheck(Game.BADGE_RESETS); // Indecisive

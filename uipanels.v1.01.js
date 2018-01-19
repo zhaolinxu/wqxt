@@ -403,7 +403,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
         Game.buyArmourLevelUpgrade();
       };
     }();
-    levelButton.innerHTML = "Increase Armour Level for " + Game.calculateItemLevelPrice(armour[1], armour[2]) + " seeds";
+    levelButton.innerHTML = "提升护甲等级需要 " + Game.calculateItemLevelPrice(armour[1], armour[2]) + " 种子";
     levelSection.appendChild(levelButton);
     var qualityButton = document.createElement("span");
     var qualitySection = document.createElement("td");
@@ -542,7 +542,7 @@ Game.createPlayerCombatPanel = function () {
       };
     }();
     burstButton.id = "combat_burstButton";
-    burstButton.innerHTML = Game.p_specUsed ? "突发不可用" : (Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "Wild Swings" : "突发攻击");
+    burstButton.innerHTML = Game.p_specUsed ? "突发不可用" : (Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "剧烈波动" : "突发攻击");
     burstSection.appendChild(burstButton);
     row4.appendChild(burstSection);
     var fleeButton = document.createElement("span");

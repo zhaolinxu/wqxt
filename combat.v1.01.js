@@ -14,11 +14,11 @@ Game.startCombat = function (isManual, isBoss) {
     if (Game.p_repairInterval) {
       window.clearInterval(Game.p_repairInterval);
       Game.p_repairInterval = null;
-      Game.toastNotification("Repair interrupted, entering combat...");
+      Game.toastNotification("维修打断，进入战斗...");
     }
     Game.p_Adrenaline = Game.powerLevel(Game.SKILL_POWER_SURGE); // Only way to enter combat with an Adrenaline Rush is via Power Surge.
     if (Game.powerLevel(Game.SKILL_POWER_SURGE) > 0) {
-      Game.combatLog("player", "<span class='q222'>Power Surge</span> activates, granting the Adrenaline Rush effect for " + Game.powerLevel(Game.SKILL_POWER_SURGE) + " attacks!");
+      Game.combatLog("player", "<span class='q222'>电涌</span> 激活，给予肾上腺素激增的效果 " + Game.powerLevel(Game.SKILL_POWER_SURGE) + " 攻击!");
     }
     if (isBoss) {
       Game.makeBoss();
@@ -91,7 +91,7 @@ Game.playerCombatTick = function (isBurst) {
             Game.combatLog("player", "<span class='q222'>Execute</span> activated, instantly dealing a killing blow.");
             if (Game.wildSwing) {
               Game.wildSwing = false;
-              Game.combatLog("player", "<span class='q222'>Wild Swings</span> ended.");
+              Game.combatLog("player", "<span class='q222'>剧烈波动</span> ended.");
             }
             Game.endCombat();
             return;
@@ -129,7 +129,7 @@ Game.playerCombatTick = function (isBurst) {
               Game.specResetInterval = null;
             }
             Game.p_specUsed = false;
-            Game.combatLog("player", "<span class='q222'>Bloodlust</span> refreshed the cooldown on your " + Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "Wild Swings!" : "突发攻击!");
+            Game.combatLog("player", "<span class='q222'>Bloodlust</span> refreshed the cooldown on your " + Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "剧烈波动!" : "突发攻击!");
           }
         }
         if (Game.powerLevel(Game.SKILL_OVERCHARGE) > 0) {
@@ -383,7 +383,7 @@ Game.playerCombatTick = function (isBurst) {
         if (!Game.flurryActive) {
           if (Game.RNG(1, 50) <= Game.powerLevel(Game.SKILL_FLURRY)) {
             Game.flurryActive = true;
-            Game.combatLog("player", " - <span class='q222'>Flurry</span> activated for an additional strike!");
+            Game.combatLog("player", " - <span class='q222'>慌乱</span> activated for an additional strike!");
             Game.playerCombatTick(isBurst);
           }
         } else {
@@ -396,7 +396,7 @@ Game.playerCombatTick = function (isBurst) {
         }
         if (Game.RNG(1, 10000) <= (100 * statValue(Game.p_Con))) {
           Game.p_HP = Math.min(Game.p_HP + Game.p_Con, Game.p_MaxHP);
-          Game.combatLog("player", "Your Constitution restored <span class='q222'>" + Game.p_Con + "</span> health.");
+          Game.combatLog("player", "你的体质恢复了 <span class='q222'>" + Game.p_Con + "</span> 生命值。");
         }
         Game.combat_playerInterval = window.setTimeout(function () {
           Game.playerCombatTick(false);
@@ -404,7 +404,7 @@ Game.playerCombatTick = function (isBurst) {
       } else {
         if (Game.wildSwing) {
           Game.wildSwing = false;
-          Game.combatLog("player", "<span class='q222'>Wild Swings</span> ended.");
+          Game.combatLog("player", "<span class='q222'>剧烈波动</span> 结束了。");
         }
         if (isBurst) {
           Game.giveBadge(Game.BADGE_BURSTFINISH); // Coup de Grace
@@ -697,7 +697,7 @@ Game.burstAttack = function () {
     }
     if (Game.e_HP > 0) {
       if (Game.getPlayerDebuff()[0] === Game.DEBUFF_SLEEP) {
-        Game.toastNotification("You cannot use Burst Attack while sleeping.");
+        Game.toastNotification("昏睡时不能使用突发攻击。");
       } else {
         Game.p_specUsed = true;
         Game.TRACK_BURSTS += 1;
@@ -712,17 +712,17 @@ Game.burstAttack = function () {
               Game.p_specUsed = false;
             }, 10000);
           }
-          Game.combatLog("player", "<span class='q222'>Wild Swings</span> activated.");
+          Game.combatLog("player", "<span class='q222'>剧烈波动</span> activated.");
           Game.wildSwing = true;
           for (x = Game.powerLevel(Game.SKILL_WILD_SWINGS); x >= 0; x -= 1) {
             Game.playerCombatTick(true);
           }
           if (Game.wildSwing) {
-            Game.combatLog("player", "<span class='q222'>Wild Swings</span> ended.");
+            Game.combatLog("player", "<span class='q222'>剧烈波动</span> 结束了.");
             Game.wildSwing = false;
           }
         } else {
-          Game.combatLog("player", "<span class='q222'>Burst Attack</span> activated.");
+          Game.combatLog("player", "<span class='q222'>突发攻击</span> 已激活。");
           Game.playerCombatTick(true);
         }
         Game.updateCombatTab();
@@ -760,12 +760,12 @@ Game.fleeCombat = function () {
       window.clearInterval(Game.specResetInterval);
       Game.specResetInterval = null;
     }
-    Game.combatLog("info", "You fled from the battle.");
+    Game.combatLog("info", "你逃离了战斗。");
     Game.TRACK_ESCAPES += 1;
     Game.TRACK_WIN_STREAK = 0;
     Game.drawActivePanel();
   } else {
-    Game.toastNotification("You cannot flee from combat while sleeping.");
+    Game.toastNotification("你不能在睡觉的时候逃避战斗。");
   }
 };
 
@@ -801,7 +801,7 @@ Game.endCombat = function () {
   Game.secondWindAvailable = true;
   if (Game.p_HP > 0) {
     // Player won, give xp and maybe, just maybe, a level.
-    Game.combatLog("info", "You won!");
+    Game.combatLog("info", "你获胜了!");
     if (Game.p_HP / Game.p_MaxHP <= 0.05) {
       Game.giveBadge(Game.BADGE_ALMOSTDEAD); // Living on a Prayer
     }
@@ -1019,10 +1019,10 @@ Game.playerDebuffTicker = function () {
 Game.enemyDebuffTicker = function () {
   var dotDMG = 0, selfHeal = 0, doomDMG = 0;
   if (Game.enemy_debuffTimer <= 0) {
-    Game.combatLog("player", " - The effect of <span class='q222'>" + Game.e_Debuff[1] + "</span> faded.");
+    Game.combatLog("player", " -  <span class='q222'>" + Game.e_Debuff[1] + "</span> 效果消退了。");
     if (Game.getEnemyDebuff()[0] === Game.DEBUFF_SLEEP) {
       // Oh crap it's coming for us!
-      Game.combatLog("enemy", (Game.e_ProperName ? "" : "The ") + Game.e_Name + " wakes up!");
+      Game.combatLog("enemy", (Game.e_ProperName ? "" : " ") + Game.e_Name + " 醒来了!");
       Game.combat_enemyInterval = window.setTimeout(Game.enemyCombatTick, 1000 * Game.e_Weapon[3]);
     }
     Game.e_Debuff = [];
@@ -1035,25 +1035,25 @@ Game.enemyDebuffTicker = function () {
       dotDMG = Math.floor(Game.RNG(Game.p_Weapon[4], Game.p_Weapon[5]) * Game.e_Debuff[3] / 100);
       Game.e_HP = Math.max(Game.e_HP - dotDMG, 0);
       Game.TRACK_DOTS_OUT += dotDMG;
-      Game.combatLog("player", " - <span class='q222'>" + Game.e_Debuff[1] + "</span> dealt an additional <span class='q222'>" + dotDMG + "</span> damage.");
+      Game.combatLog("player", " - <span class='q222'>" + Game.e_Debuff[1] + "</span> 额外造成 <span class='q222'>" + dotDMG + "</span> 伤害。");
       break;
     case Game.DEBUFF_DRAIN:
       // HEALZ YO
       selfHeal = Math.floor(Game.RNG(Game.p_Weapon[4], Game.p_Weapon[5]) * Game.e_Debuff[3] / 100);
       Game.p_HP = Math.min(Game.p_HP + selfHeal, Game.p_MaxHP);
       Game.TRACK_DRAIN_IN += selfHeal;
-      Game.combatLog("player", " - <span class='q222'>" + Game.e_Debuff[1] + "</span> healed you for <span class='q222'>" + selfHeal + "</span>.");
+      Game.combatLog("player", " - <span class='q222'>" + Game.e_Debuff[1] + "</span> 医治了你 <span class='q222'>" + selfHeal + "</span>.");
       break;
     case Game.DEBUFF_DOOM:
       // This might hurt a little.
       if (Game.enemy_debuffTimer === 0) {
         if (Game.RNG(1, 100) <= Game.e_Debuff[3]) {
-          Game.combatLog("player", " - <span class='q222'>" + Game.e_Debuff[1] + "</span> explodes, instantly killing the target.");
+          Game.combatLog("player", " - <span class='q222'>" + Game.e_Debuff[1] + "</span> 爆炸，瞬间杀死目标。");
           Game.e_HP = 0;
           Game.TRACK_DOOM_OUT += 1;
         } else {
           doomDMG = Math.floor(Game.RNG(Game.p_Weapon[4], Game.p_Weapon[5]) * Game.p_Weapon[9][3] / 2);
-          Game.combatLog("player", " - <span class='q222'>" + Game.e_Debuff[1] + "</span> explodes, dealing <span class='q222'>" + doomDMG + "</span> damage.");
+          Game.combatLog("player", " - <span class='q222'>" + Game.e_Debuff[1] + "</span> 爆炸，造成了 <span class='q222'>" + doomDMG + "</span> 伤害。");
           Game.e_HP = Math.max(Game.e_HP - doomDMG, 0);
         }
       }

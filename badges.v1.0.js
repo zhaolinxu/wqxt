@@ -184,7 +184,7 @@ Game.giveBadge = function (badgeID) {
     return 0;
   }
   Game.playerBadges.push(badgeID);
-  Game.toastNotification("Badge earned: " + Game.BADGE_LIST[badgeID - Game.BADGE_NAME][0]);
+  Game.toastNotification("徽章获得了: " + Game.BADGE_LIST[badgeID - Game.BADGE_NAME][0]);
   Game.updateActivePanel();
 };
 

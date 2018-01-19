@@ -10,26 +10,26 @@ names and descriptions of various
 game objects.
 ---------------------------------*/
 // Weapon name arrays
-Game.fast_melee_generic = ["Shortsword", "Dagger", "Quickblade", "Knife", "Shiv", "Rapier"];
-Game.mid_melee_generic = ["Gladius", "Longblade", "Hand-Axe", "Machete", "Lance", "Brass Knuckles"];
-Game.slow_melee_generic = ["Morningstar", "Cleaver", "Broadsword", "Warmaul", "Halberd", "Heavy Blade"];
-Game.fast_range_generic = ["Shuriken", "Throwing Knife", "Throwing Axe", "Mini-Crossbow", "Darts"];
-Game.mid_range_generic = ["Repeater", "Shortbow", "Javelin", "Slingshot", "Musket"];
-Game.slow_range_generic = ["Crossbow", "Longbow", "Composite Bow", "Sling", "Hand-Cannon"];
-Game.fast_magic_generic = ["Spellblade", "Tome of Thunder", "Quarterstaff", "Scepter", "Spark Orb"];
-Game.mid_magic_generic = ["Mageblade", "Tome of Flame", "Spell Focus", "Battlestaff", "Flame Orb"];
-Game.slow_magic_generic = ["War Staff", "Tome of Frost", "Grimoire", "Crozier", "Frost Orb"];
+Game.fast_melee_generic = ["短剑", "匕首", "迅捷之刃", "刀", "毒刃", "双刃剑"];
+Game.mid_melee_generic = ["宝剑", "长剑", "手斧", "弯刀", "矛", "指节铜环"];
+Game.slow_melee_generic = ["晨星", "利斧", "大刀", "战槌", "戟", "重刀"];
+Game.fast_range_generic = ["飞镖", "投掷刀", "飞斧", "迷你弩", "飞镖"];
+Game.mid_range_generic = ["中继器", "短弓", "标枪", "弹弓", "滑膛枪"];
+Game.slow_range_generic = ["弩", "长弓", "复合弓", "枪带", "手炮"];
+Game.fast_magic_generic = ["魔法之刃", "雷霆之书", "木棍", "权杖", "火花球"];
+Game.mid_magic_generic = ["魔刃", "火焰之书", "法术专攻", "作战法杖", "火焰球"];
+Game.slow_magic_generic = ["战斗法杖", "冰霜之书", "魔典", "牧杖", "冰霜之球"];
 Game.debuffs_generic = [
-  [241, "Ruthlessness", 10, -1],
-  [242, "Frenzy", 10, 50],
-  [243, "Bloodthirst", 10, 20],
-  [244, "Cripple", 10, 15],
-  [245, "Mind Control", 5, -1],
-  [246, "Wound Poison", 10, 20],
-  [247, "Nerve Strike", 10, 15],
-  [248, "Mounting Dread", 5, 5],
-  [249, "Disarmed", 10, -1],
-  [250, "Comatose", 10, 15]
+  [241, "冷酷无情", 10, -1],
+  [242, "狂暴", 10, 50],
+  [243, "嗜血", 10, 20],
+  [244, "削弱", 10, 15],
+  [245, "精神控制", 5, -1],
+  [246, "致伤毒药", 10, 20],
+  [247, "神经打击", 10, 15],
+  [248, "与日俱增的恐惧", 5, 5],
+  [249, "解除武装", 10, -1],
+  [250, "昏睡", 10, 15]
 ];
 Game.debuffs_potion_normal = [
   [241, "Acidic Solution", 15, -1],
@@ -127,12 +127,12 @@ Game.fast_melee_special = [
   "Ether-Soaked Rag|\"Hey, does this cloth smell like chloroform to you?\""
 ];
 Game.fast_melee_debuffs = [
-  [242, "Frenzy", 15, 70],
-  [246, "Wound Poison", 15, 30],
-  [245, "Domination", 5, -1],
-  [243, "Holy Light", 15, 30],
-  [249, "Break Weapon", 15, -1],
-  [250, "Anesthesia", 15, 10]
+  [242, "狂暴", 15, 70],
+  [246, "致伤毒药", 15, 30],
+  [245, "支配", 5, -1],
+  [243, "圣光", 15, 30],
+  [249, "解除武装", 15, -1],
+  [250, "麻痹", 15, 10]
 ];
 Game.mid_melee_special = [
   "Edge of Depravity|I think it's just misunderstood...",
@@ -143,12 +143,12 @@ Game.mid_melee_special = [
   "Concrete Pillowcase|GO TO SLEEP DAMN YOU!"
 ];
 Game.mid_melee_debuffs = [
-  [241, "Ruthlessness", 15, -1],
-  [247, "Static Shock", 15, 25],
-  [243, "Cauterize", 15, 30],
-  [249, "Dazzle", 15, -1],
-  [247, "Staggered", 15, 25],
-  [250, "Concussion", 15, 10]
+  [241, "冷酷无情", 15, -1],
+  [247, "静电冲击", 15, 25],
+  [243, "腐蚀", 15, 30],
+  [249, "眩光", 15, -1],
+  [247, "交错", 15, 25],
+  [250, "震荡", 15, 10]
 ];
 Game.slow_melee_special = [
   "Planetary Edge|Rare, because planets aren't edgy.",
@@ -167,20 +167,20 @@ Game.slow_melee_debuffs = [
   [244, "一般慢速", 15, 25]
 ];
 Game.fast_range_special = [
-  "Ace of Spades|Who throws a card? I mean, come on, really?",
-  "Tomahawk|Serving native tribes for centuries.",
+  "黑桃王牌|谁抛出一个卡吗？ 我的意思是，来吧，真的吗？",
+  "战斧|为土著部落提供几个世纪的服务。",
   "Throat Piercers|Also perfect for piercing other parts.",
   "Miniature Shurikens|Why throw one when you can throw ten?",
   "Tranquilizer Blowpipe|Be very very quiet...",
   "M60 Light Machine Gun|Modern warfare at its finest."
 ];
 Game.fast_range_debuffs = [
-  [246, "Paper Cut", 15, 30],
-  [244, "Cripple", 15, 25],
-  [241, "Piercing Throw", 15, -1],
-  [242, "Barrage", 15, 70],
-  [250, "Tranquilized", 15, 10],
-  [247, "Suppressive Fire", 15, 25]
+  [246, "剪纸", 15, 30],
+  [244, "削弱", 15, 25],
+  [241, "穿刺", 15, -1],
+  [242, "炮火", 15, 70],
+  [250, "镇静剂", 15, 10],
+  [247, "火力压制", 15, 25]
 ];
 Game.mid_range_special = [
   "死神天降|或低于或远离，取决于您所在的位置。",
@@ -398,7 +398,7 @@ Game.BADGE_LIST = [
   ["Coup de Grace", "Deliver the finishing blow to a foe with a Burst Attack.", "Sometimes you just need a personal touch.", 2013],
   ["Manual Labour", "Deliver 1,000 Burst Attacks.", "Taking a more direct approach to mindless violence.", 2014],
   ["Living on a Prayer", "Win a fight with less than 5% of your total health remaining.", "Take my hand and we'll make it, I swear!", 2015],
-  ["The Survivalist", "Win a fight having entered it with less than 25% health.", "Just don't start drinking your own urine.", 2016],
+  ["生存主义者", "以低于25%的生命水平赢得了一场战斗。", "只是不要开始喝你自己的尿液。", 2016],
   ["Flawless Victory", "Defeat an enemy without taking any damage.", "I am invincible!", 2017],
   ["MC Hammer Special", "Defeat a boss without taking any damage.", "Can't touch this, na na na na, na na, na na.", 2018],
   ["War of Attrition", "Take at least 25 attacks in one battle.", "I could do this ALL DAY!.", 2019],

@@ -11,7 +11,7 @@ Holds functions relating to idle tickers
 
 Game.startRepair = function () {
   if (Game.p_State !== Game.STATE_COMBAT && !Game.p_repairInterval) {
-    Game.toastNotification("Repairing equipment...");
+    Game.toastNotification("修理装备中...");
     Game.giveBadge(Game.BADGE_REPAIR);
     Game.p_repairInterval = window.setInterval(Game.repairTick, 1000);
   }
@@ -32,7 +32,7 @@ Game.repairTick = function () {
   if (Game.p_Weapon[8] === weaponMax && Game.p_Armour[3] === armourMax) {
     window.clearInterval(Game.p_repairInterval);
     Game.p_repairInterval = null;
-    Game.toastNotification("Equipment repaired.");
+    Game.toastNotification("装备已修复。");
   }
   Game.updateInventory = true;
   //Game.drawActivePanel();
