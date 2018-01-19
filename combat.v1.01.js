@@ -175,7 +175,7 @@ Game.playerCombatTick = function (isBurst) {
           playerDMG = Math.floor(playerDMG);
           Game.p_HP = Math.max(Game.p_HP - playerDMG, 0);
           Game.TRACK_CHARM_IN += 1;
-          Game.combatLog("enemy", "<span class='q222'>" + Game.p_Debuff[1] + "</span> causes you to attack yourself for <span class='q222'>" + playerDMG + "</span> damage.");
+          Game.combatLog("enemy", "<span class='q222'>" + Game.p_Debuff[1] + "</span> 让你攻击自己 <span class='q222'>" + playerDMG + "</span> 伤害。");
           if (Game.p_HP <= 0) {
             Game.giveBadge(Game.BADGE_SELF_KILL);
           } // Punching Mirrors
@@ -189,10 +189,10 @@ Game.playerCombatTick = function (isBurst) {
                   if (isBurst && Game.powerLevel(Game.SKILL_UNDERMINE) > 0) {
                     playerDMG += Game.e_Armour[4][a][1];
                   } else if (Game.RNG(1, 50) <= Game.powerLevel(Game.SKILL_SHIELD_CRUSH)) {
-                    Game.combatLog("player", "<span class='q222'>Shield Crush</span> breached the enemy's defences!");
+                    Game.combatLog("player", "<span class='q222'>盾牌粉碎</span> 突破敌人的防御!");
                     Game.shieldCrushActive = true;
                     if (Game.powerLevel(Game.SKILL_HOLD_THE_LINE) > 0) {
-                      Game.combatLog("player", "Preparing to <span class='q222'>Hold The Line</span>!");
+                      Game.combatLog("player", "Preparing to <span class='q222'>坚持下去</span>!");
                     }
                     if (Game.powerLevel(Game.SKILL_STAND_YOUR_GROUND) > 0) {
                       Game.player_debuffTimer = 0;
@@ -289,13 +289,13 @@ Game.playerCombatTick = function (isBurst) {
           Game.updateCombatTab();
           if (Game.getPlayerDebuff()[0] === Game.DEBUFF_DISARM || Game.p_Weapon[8] === 0) {
             // Use the force, applied via the knuckles.
-            Game.combatLog("player", "You hit " + (Game.e_ProperName ? "" : "the ") + Game.e_Name + " with your fists for <span class='q222'>" + playerDMG + "</span> damage" + (didCrit ? " (Critical)" : "."));
+            Game.combatLog("player", "你攻击了 " + (Game.e_ProperName ? "" : " ") + Game.e_Name + " 用你的拳头造成了 <span class='q222'>" + playerDMG + "</span> 伤害" + (didCrit ? " (暴击)" : "."));
           } else {
             // Stick 'em with the pointy end.
-            Game.combatLog("player", "You hit " + (Game.e_ProperName ? "" : "the ") + Game.e_Name + " with your <span class='q" + Game.p_Weapon[7] + "'>" + Game.p_Weapon[0].split("|")[0] + "</span> for <span class='q222'>" + playerDMG + "</span> damage" + (didCrit ? " (Critical)" : "."));
+            Game.combatLog("player", "你攻击了 " + (Game.e_ProperName ? "" : " ") + Game.e_Name + " 使用 <span class='q" + Game.p_Weapon[7] + "'>" + Game.p_Weapon[0].split("|")[0] + "</span> 造成了 <span class='q222'>" + playerDMG + "</span> 伤害" + (didCrit ? " (暴击)" : "."));
             if (Game.RNG(1, 100) <= (3 * Game.powerLevel(Game.SKILL_PROPER_CARE))) {
               // Proper Care
-              Game.combatLog("player", " - <span class='q222'>Proper Care</span> prevented weapon decay.");
+              Game.combatLog("player", " - <span class='q222'>适当的照顾</span> 阻止武器耐久降低。");
             } else {
               // Durability loss
               Game.p_Weapon[8] -= 1;
@@ -306,7 +306,7 @@ Game.playerCombatTick = function (isBurst) {
               if (Game.p_Weapon[8] <= 0) {
                 Game.p_Weapon[8] = 0;
                 Game.TRACK_BROKEN_ITEMS += 1;
-                Game.combatLog("player", " - Your <span class='q" + Game.p_Weapon[7] + "'>" + Game.p_Weapon[0].split("|")[0] + "</span> has broken!");
+                Game.combatLog("player", " - 你的 <span class='q" + Game.p_Weapon[7] + "'>" + Game.p_Weapon[0].split("|")[0] + "</span> 坏掉了!");
               }
             }
           }
@@ -314,7 +314,7 @@ Game.playerCombatTick = function (isBurst) {
             // DOUBLE STRIKEU
             secondStrike = Math.floor(playerDMG * (Game.e_Debuff[3] / 100));
             Game.e_HP = Math.max(Game.e_HP - secondStrike, 0);
-            Game.combatLog("player", " - <span class='q222'>" + Game.e_Debuff[1] + "</span> allows you to strike again for <span class='q222'>" + secondStrike + "</span> damage.");
+            Game.combatLog("player", " - <span class='q222'>" + Game.e_Debuff[1] + "</span> 允许你再次攻击，造成了 <span class='q222'>" + secondStrike + "</span> 伤害。");
           }
           if (Game.getEnemyDebuff()[0] === Game.DEBUFF_SLEEP) {
             // Waking the beast. Maybe.
@@ -353,18 +353,18 @@ Game.playerCombatTick = function (isBurst) {
               Game.player_debuffInterval = window.setInterval(Game.playerDebuffTicker, 1000);
               if (Game.getPlayerDebuff()[0] === Game.DEBUFF_SLEEP) {
                 window.clearInterval(Game.combat_playerInterval);
-                Game.combatLog("player", "You fall asleep...");
+                Game.combatLog("player", "你陷入了沉睡中...");
               }
             } else {
               Game.e_Debuff = Game.p_Weapon[9].slice();
-              Game.combatLog("player", " - " + (Game.e_ProperName ? "" : "The ") + Game.e_Name + " suffers from <span class='q222'>" + Game.p_Weapon[9][1] + "</span>.");
+              Game.combatLog("player", " - " + (Game.e_ProperName ? "" : " ") + Game.e_Name + " 受到 <span class='q222'>" + Game.p_Weapon[9][1] + "</span>.");
               Game.TRACK_DEBUFFS_OUT += 1;
               Game.enemy_debuffTimer = Game.p_Weapon[9][2];
               window.clearInterval(Game.enemy_debuffInterval);
               Game.enemy_debuffInterval = window.setInterval(Game.enemyDebuffTicker, 1000);
               if (Game.getEnemyDebuff()[0] === Game.DEBUFF_SLEEP) {
                 window.clearInterval(Game.combat_enemyInterval);
-                Game.combatLog("enemy", (Game.e_ProperName ? "" : "The ") + Game.e_Name + " falls asleep...");
+                Game.combatLog("enemy", (Game.e_ProperName ? "" : " ") + Game.e_Name + " 陷入了沉睡中...");
               }
             }
           }
@@ -376,7 +376,7 @@ Game.playerCombatTick = function (isBurst) {
         // Stage 8: Miscellaneous Effects
         if (Game.RNG(1, 100) <= Game.powerLevel(Game.SKILL_FIVE_FINGER_DISCOUNT)) {
           Game.p_Currency += Game.e_Level;
-          Game.combatLog("player", "<span class='q222'>Five-Finger Discount</span> allowed you to steal " + Game.e_Level + " seeds.");
+          Game.combatLog("player", "<span class='q222'>五指折扣</span> 允许你偷 " + Game.e_Level + " 种子。");
         }
       }
       if (Game.e_HP > 0 && Game.p_HP > 0) {
@@ -428,14 +428,14 @@ Game.enemyCombatTick = function () {
     // Paralysis check!
     if (Game.getEnemyDebuff()[0] === Game.DEBUFF_PARAHAX && Game.RNG(1, 100) <= Game.e_Debuff[3]) {
       // Paralysis happened.
-      Game.combatLog("enemy", "<span class='q222'>" + Game.e_Debuff[1] + "</span> prevented " + (Game.e_ProperName ? "" : "the ") + Game.e_Name + " from attacking.");
+      Game.combatLog("enemy", "<span class='q222'>" + Game.e_Debuff[1] + "</span> 防止 " + (Game.e_ProperName ? "" : " ") + Game.e_Name + " 从攻击中。");
       Game.TRACK_PARAHAX_OUT += 1;
     } else if (Game.RNG(1, 10000) <= Math.floor(50 * statValue(Game.p_Int))) {
       // Dodged a bullet
-      Game.combatLog("player", "You dodged the incoming attack.");
+      Game.combatLog("player", "你躲开了攻击。");
       if (Game.p_specUsed && Game.powerLevel(Game.SKILL_ARTFUL_DODGER) > 0) {
         // Artful Dodger
-        Game.combatLog("player", "<span class='q222'>Artful Dodger</span> refreshed your 突发攻击!");
+        Game.combatLog("player", "<span class='q222'>狡猾</span> 刷新了你的 突发攻击!");
         window.clearTimeout(Game.specResetInterval);
         Game.specResetInterval = null;
         Game.p_specUsed = false;
@@ -450,7 +450,7 @@ Game.enemyCombatTick = function () {
         enemyDMG = Math.floor(enemyDMG);
         Game.e_HP = Math.max(Game.e_HP - enemyDMG, 0);
         Game.TRACK_CHARM_OUT += 1;
-        Game.combatLog("player", "<span class='q222'>" + Game.e_Debuff[1] + "</span> causes " + (Game.e_ProperName ? "" : "the ") + Game.e_Name + " to attack itself for <span class='q222'>" + enemyDMG + "</span> damage.");
+        Game.combatLog("player", "<span class='q222'>" + Game.e_Debuff[1] + "</span> 原因 " + (Game.e_ProperName ? "" : " ") + Game.e_Name + " 攻击自己 <span class='q222'>" + enemyDMG + "</span> 伤害。");
         if (Game.e_HP <= 0) {
           Game.giveBadge(Game.BADGE_ENEMY_SELF_KILL);
         } // Assisted Suicide
@@ -572,14 +572,14 @@ Game.enemyCombatTick = function () {
             break;
           }
           if (Game.getEnemyDebuff()[0] === Game.DEBUFF_DISARM) {
-            Game.combatLog("enemy", (Game.e_ProperName ? "" : "The ") + Game.e_Name + " hits you with their fists for <span class='q222'>" + enemyDMG + "</span> damage" + (didBlock ? " (<span class='q222'>" + blockedDamage + "</span> blocked)" : "") + ".");
+            Game.combatLog("enemy", (Game.e_ProperName ? "" : " ") + Game.e_Name + " 第一次攻击了你，并对你造成了 <span class='q222'>" + enemyDMG + "</span> 伤害" + (didBlock ? " (<span class='q222'>" + blockedDamage + "</span> 已格挡)" : "") + ".");
           } else {
-            Game.combatLog("enemy", (Game.e_ProperName ? "" : "The ") + Game.e_Name + " hits you with their <span class='q" + Game.e_Weapon[7] + "'>" + Game.e_Weapon[0].split("|")[0] + "</span> for <span class='q222'>" + enemyDMG + "</span> damage" + (didBlock ? " (<span class='q222'>" + blockedDamage + "</span> blocked)" : "") + ".");
+            Game.combatLog("enemy", (Game.e_ProperName ? "" : " ") + Game.e_Name + " 攻击了你，使用 <span class='q" + Game.e_Weapon[7] + "'>" + Game.e_Weapon[0].split("|")[0] + "</span> 对你造成了 <span class='q222'>" + enemyDMG + "</span> 伤害" + (didBlock ? " (<span class='q222'>" + blockedDamage + "</span> 已格挡)" : "") + ".");
           }
           if (didBlock && Game.powerLevel(Game.SKILL_EYE_FOR_AN_EYE) > 0) {
             // Eye for an Eye activated, return damage.
             Game.e_HP = Math.max(Game.e_HP - blockedDamage, 0);
-            Game.combatLog("player", "<span class='q222'>Eye for an Eye</span> dealt <span class='q222'>" + blockedDamage + "</span> back to the attacker.");
+            Game.combatLog("player", "<span class='q222'>以眼还眼</span> 对攻击者造成 <span class='q222'>" + blockedDamage + "</span> 伤害");
           }
           if (didBlock && Game.RNG(1, 100) <= Game.powerLevel(Game.SKILL_RIPOSTE)) {
             // Riposte activated, disarm the opponent if we can.
@@ -589,25 +589,25 @@ Game.enemyCombatTick = function () {
               Game.enemy_debuffTimer = Game.debuffs_generic[8][2];
               window.clearInterval(Game.enemy_debuffInterval);
               Game.enemy_debuffInterval = window.setInterval(Game.enemyDebuffTicker, 1000);
-              Game.combatLog("player", "<span class='q222'>Riposte</span> activated! " + (Game.e_ProperName ? "" : "The ") + Game.e_Name + " suffers from <span class='q222'>" + Game.debuffs_generic[8][1] + "</span>.");
+              Game.combatLog("player", "<span class='q222'>还击</span> 已激活! " + (Game.e_ProperName ? "" : " ") + Game.e_Name + " 受到 <span class='q222'>" + Game.debuffs_generic[8][1] + "</span>.");
             }
           }
           // Bladed Armour
           reflectDMG = Math.floor(enemyDMG * (0.02 * Game.powerLevel(Game.SKILL_BLADED_ARMOUR)));
           if (reflectDMG > 0) {
             Game.e_HP = Math.max(Game.e_HP - reflectDMG, 0);
-            Game.combatLog("player", "<span class='q222'>Bladed Armour</span> dealt <span class='q222'>" + reflectDMG + "</span> damage to the attacker.");
+            Game.combatLog("player", "<span class='q222'>刃状装甲</span> 对攻击者造成了 <span class='q222'>" + reflectDMG + "</span> 伤害。");
           }
           if (Game.RNG(1, 50) <= Game.powerLevel(Game.SKILL_VENGEANCE)) {
             // You get what you give. Mostly.
             vengDMG = Math.floor(enemyDMG / 2);
             Game.e_HP = Math.max(Game.e_HP - vengDMG, 0);
-            Game.combatLog("player", "Your <span class='q222'>Vengeance</span> effect dealt " + vengDMG + " damage.");
+            Game.combatLog("player", "Your <span class='q222'>复仇</span> 效果造成了 " + vengDMG + " 伤害。");
           }
           if (Game.getPlayerDebuff()[0] === Game.DEBUFF_MULTI) {
             secondDmg = Math.floor(enemyDMG * Game.p_Debuff[3] / 100);
             Game.p_HP = Math.max(Game.p_HP - secondDmg, 0);
-            Game.combatLog("enemy", " - <span class='q222'>" + Game.p_Debuff[1] + "</span> allows " + (Game.e_ProperName ? "" : "the ") + Game.e_Name + " to strike again for <span class='q222'>" + secondDmg + "</span> damage.");
+            Game.combatLog("enemy", " - <span class='q222'>" + Game.p_Debuff[1] + "</span> 允许 " + (Game.e_ProperName ? "" : " ") + Game.e_Name + " 进行二次攻击，造成了 <span class='q222'>" + secondDmg + "</span> 伤害。");
           }
           if (Game.getPlayerDebuff()[0] === Game.DEBUFF_SLEEP) {
             // Waking the beast. Maybe.
@@ -852,13 +852,13 @@ Game.endCombat = function () {
     }
     xpToAdd = Math.floor(xpToAdd * (1 + (0.05 * Game.powerLevel(Game.SKILL_FAST_LEARNER))));
     badgeBonus = Math.floor(xpToAdd * (0.02 * Game.playerBadges.length));
-    Game.combatLog("info", "You gained <span class='q222'>" + xpToAdd + "</span> (<span class='q223'>+" + badgeBonus + "</span>) (<span class='q224'>+" + Game.prestigeLevel + "</span>) experience.");
+    Game.combatLog("info", "你获得了 <span class='q222'>" + xpToAdd + "</span> (<span class='q223'>+" + badgeBonus + "</span>) (<span class='q224'>+" + Game.prestigeLevel + "</span>) 经验。");
     // Overflow
     if (Game.powerLevel(Game.SKILL_RECLAIMED_KNOWLEDGE) > 0) {
       bonusXP = Math.floor(Math.min(Game.TRACK_XP_OVERFLOW, xpToAdd / 2));
       xpToAdd += bonusXP;
       Game.TRACK_XP_OVERFLOW -= bonusXP;
-      Game.combatLog("info", "You gained an additional <span class='q222'>" + bonusXP + "</span> experience from Reclaimed Knowledge.");
+      Game.combatLog("info", "你获得了额外的 <span class='q222'>" + bonusXP + "</span> 从回收知识获得的经验。");
     }
     // More seeds? See above.
     if (!Game.canLoot) {
@@ -871,23 +871,23 @@ Game.endCombat = function () {
     if (Game.RNG(1, 50) <= Game.powerLevel(Game.SKILL_CAVITY_SEARCH)) {
       // Everybody gets seeds!
       currencyToAdd *= 3;
-      Game.combatLog("info", "<span class='q222'>Cavity Search</span> tripled seed gain!");
+      Game.combatLog("info", "<span class='q222'>空腔搜索</span> 三倍的种子收益!");
     }
     if (Game.RNG(1, 50) <= Game.powerLevel(Game.SKILL_THOROUGH_LOOTING)) {
       // Yes, you can have some scrap. It's okay.
       Game.p_Scrap += 1;
       Game.TRACK_COMBAT_SCRAP += 1;
-      Game.combatLog("info", "<span class='q222'>Thorough Looting</span> yielded an extra piece of scrap!");
+      Game.combatLog("info", "<span class='q222'>彻底的抢劫</span> 产生了额外的一块碎片。!");
     }
-    Game.combatLog("info", "You gained <span class='q222'>" + currencyToAdd + "</span> (<span class='q223'>+" + currencyBadgeBonus + "</span>) (<span class='q224'>+" + Game.prestigeLevel + "</span>) seeds.");
+    Game.combatLog("info", "你获得了 <span class='q222'>" + currencyToAdd + "</span> (<span class='q223'>+" + currencyBadgeBonus + "</span>) (<span class='q224'>+" + Game.prestigeLevel + "</span>) 种子。");
     if (!Game.canLoot) {
       // This was a boss kill - Set maxZone, award badge, drop notification
       lastmax = Game.p_maxZone;
       Game.p_maxZone = Math.max(Game.p_maxZone, Game.p_currentZone + 1);
       Game.giveBadge(Game.BADGE_ZONE1 + Game.p_currentZone);
-      Game.combatLog("info", "<span class='q222'>" + Game.ZONE_NAMES[Game.p_currentZone] + " cleared!</span>");
+      Game.combatLog("info", "<span class='q222'>" + Game.ZONE_NAMES[Game.p_currentZone] + " 已清理!</span>");
       if (Game.p_maxZone > lastmax) {
-        Game.combatLog("info", "<span class='q222'>" + Game.ZONE_NAMES[Game.p_maxZone] + " is now open!</span>");
+        Game.combatLog("info", "<span class='q222'>" + Game.ZONE_NAMES[Game.p_maxZone] + " 现在开启了!</span>");
       }
     }
     Game.p_EXP += xpToAdd;
@@ -919,22 +919,22 @@ Game.endCombat = function () {
       // If this works, nobody will complain about repair timers.
       Game.p_Weapon[8] = 50 + (5 * (Game.p_Weapon[1] - 1));
       Game.p_Armour[3] = 50 + (5 * (Game.p_Armour[1] - 1));
-      Game.combatLog("info", "<span class='q222'>High Maintenance</span> fully repaired your equipment.");
+      Game.combatLog("info", "<span class='q222'>高维护</span> 完全修理你的装备。");
     }
     if (Game.powerLevel(Game.SKILL_VICTORY_RUSH) > 0) {
       // Cutting out the downtime.
       restoredHealth = Math.floor((Game.powerLevel(Game.SKILL_VICTORY_RUSH) * 0.05) * Game.p_MaxHP);
       Game.p_HP = Math.min(Game.p_MaxHP, Game.p_HP + restoredHealth);
-      Game.combatLog("info", "<span class='q222'>Victory Rush</span> restored <span class='q222'>" + restoredHealth + "</span> health.");
+      Game.combatLog("info", "<span class='q222'>胜利冲刺</span> 恢复了你 <span class='q222'>" + restoredHealth + "</span> 血量。");
     }
     Game.TRACK_WINS += 1;
     Game.badgeCheck(Game.BADGE_KILLCOUNT); // Skullcrusher Mountain
     Game.TRACK_WIN_STREAK += 1;
   } else {
     // Enemy won, dock XP
-    Game.combatLog("info", "You lost...");
+    Game.combatLog("info", "你失败了...");
     xpDrop = Math.floor(Game.p_EXP / 4);
-    Game.combatLog("info", "You lose <span class='q222'>" + xpDrop + "</span> experience...");
+    Game.combatLog("info", "你因为失败，掉落了 <span class='q222'>" + xpDrop + "</span> 经验值...");
     Game.p_EXP -= xpDrop;
     Game.TRACK_XP_LOST += xpDrop;
     Game.TRACK_LOSSES += 0;
@@ -966,10 +966,10 @@ Game.getEnemyDebuff = function () {
 Game.playerDebuffTicker = function () {
   var timerLength = 0, dotDMG = 0, selfHeal = 0, doomDMG = 0;
   if (Game.player_debuffTimer <= 0) {
-    Game.combatLog("enemy", " - The effect of <span class='q222'>" + Game.p_Debuff[1] + "</span> faded.");
+    Game.combatLog("enemy", " - <span class='q222'>" + Game.p_Debuff[1] + "</span> 效果消失了。");
     if (Game.getPlayerDebuff()[0] === Game.DEBUFF_SLEEP) {
       // Rise and shine buttercup!
-      Game.combatLog("player", "You wake up!");
+      Game.combatLog("player", "你醒来了!");
       timerLength = 1000 * Game.p_Weapon[3] * (1 - (0.03 * Game.powerLevel(Game.SKILL_NIMBLE_FINGERS)));
       Game.combat_playerInterval = window.setTimeout(function () {
         Game.playerCombatTick(false);
@@ -985,14 +985,14 @@ Game.playerDebuffTicker = function () {
       dotDMG = Math.floor(Game.RNG(Game.e_Weapon[4], Game.e_Weapon[5]) * Game.p_Debuff[3] / 100);
       Game.p_HP = Math.max(Game.p_HP - dotDMG, 0);
       Game.TRACK_DOTS_IN += dotDMG;
-      Game.combatLog("enemy", " - <span class='q222'>" + Game.p_Debuff[1] + "</span> dealt an additional <span class='q222'>" + dotDMG + "</span> damage.");
+      Game.combatLog("enemy", " - <span class='q222'>" + Game.p_Debuff[1] + "</span> 造成额外的 <span class='q222'>" + dotDMG + "</span> 伤害。");
       break;
     case Game.DEBUFF_DRAIN:
       // HEALZ YO
       selfHeal = Math.floor(Game.RNG(Game.e_Weapon[4], Game.e_Weapon[5]) * Game.p_Debuff[3] / 100);
       Game.e_HP = Math.min(Game.e_HP + selfHeal, Game.e_MaxHP);
       Game.TRACK_DRAIN_OUT += selfHeal;
-      Game.combatLog("enemy", " - <span class='q222'>" + Game.p_Debuff[1] + "</span> healed the enemy for <span class='q222'>" + selfHeal + "</span>.");
+      Game.combatLog("enemy", " - <span class='q222'>" + Game.p_Debuff[1] + "</span> 治愈了敌人 <span class='q222'>" + selfHeal + "</span>.");
       break;
     case Game.DEBUFF_DOOM:
       // This might hurt a little.

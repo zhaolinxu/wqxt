@@ -56,28 +56,28 @@ Game.debuffs_potion_superior = [
   [250, "Enhanced Chloroform Concoction", 15, 10]
 ];
 Game.debuff_names = [
-  "Armour Shred",
-  "Double Attack",
-  "Health Drain",
-  "Slower Attacks",
-  "Confusion",
-  "Damage over Time",
-  "Paralysis",
-  "Doom",
-  "Disarm",
-  "Sleep"
+  "盔甲碎片",
+  "双重攻击",
+  "生命吸取",
+  "慢速攻击",
+  "混乱",
+  "持续伤害",
+  "麻痹",
+  "厄运",
+  "解除武装",
+  "昏睡"
 ];
 Game.debuff_descriptions = [
-  "Causes your attacks to ignore the target's armour strengths for 10 (15) seconds.",
-  "Causes your attacks to deal a second hit for 50% (70%) of the main hit's damage for 10 (15) seconds.",
-  "Restores HP equal to 20% (30%) of weapon DPS every second for 10 (15) seconds.",
-  "Increases the delay between the target's attacks by 15% (25%) for 10 (15) seconds.",
-  "Causes the target's next attack to hit themselves.",
-  "Deals 20% (30%) of weapon DPS to the target every second for 10 (15) seconds.",
-  "Causes the target's attacks to fail 15% (25%) of the time for 10 (15) seconds.",
-  "Grants a 5% (7%) chance to kill the target outright. Deals 250% (350%) weapon DPS if it fails to kill.",
-  "Cuts damage dealt by the target by 50% and prevents the target applying debuffs for 10 (15) seconds.",
-  "Prevents the target from attacking for 10 (15) seconds. Has a 60% (40%) chance to break on hit."
+  "使你的攻击忽略目标的装甲强度，持续10(15)秒。",
+  "使你的攻击造成二次攻击，造成的伤害是第一次伤害的50%(70%)，持续时间10(15)秒。",
+  "每秒恢复等于20%(30%)的武器秒伤害的血量，持续10(15)秒。",
+  "减缓敌人攻击速度15%(25%)，持续10(15)秒。",
+  "使目标的下一次攻击击中他们自己。",
+  "每秒对目标造成20%(30%)的武器秒伤害，10(15)秒。",
+  "增加目标攻击失败的几率15%(25%)，持续时间10(15)秒。",
+  "给予5%(7%)的机会彻底消灭目标。如果不能杀死的话，可以给予250%(350%)的武器秒伤害。",
+  "将目标造成的伤害降低50％，防止目标施放减益效果10（15）秒。",
+  "防止目标攻击10(15)秒。有60%(40%)的几率被攻击打断。"
 ];
 Game.potions = [
   [
@@ -159,12 +159,12 @@ Game.slow_melee_special = [
   "Generic Melee Weapon|Relic of a bygone era."
 ];
 Game.slow_melee_debuffs = [
-  [244, "Hamstring", 15, 25],
-  [248, "Dark Omen", 5, 7],
-  [241, "Diplomacy", 15, -1],
-  [243, "Holy Radiance", 15, 30],
-  [244, "Concussion", 15, 25],
-  [244, "Generic Slow", 15, 25]
+  [244, "断筋", 15, 25],
+  [248, "黑暗预兆", 5, 7],
+  [241, "外交", 15, -1],
+  [243, "神圣光辉", 15, 30],
+  [244, "震荡", 15, 25],
+  [244, "一般慢速", 15, 25]
 ];
 Game.fast_range_special = [
   "Ace of Spades|Who throws a card? I mean, come on, really?",
@@ -183,38 +183,38 @@ Game.fast_range_debuffs = [
   [247, "Suppressive Fire", 15, 25]
 ];
 Game.mid_range_special = [
-  "Death From Above|Or below, or far away, depending on where you stand.",
-  "Tidebreaker's Harpoon|They might want it back at some point.",
-  "The Dreamer|Shoots rainbows and sunshine.",
-  "Sagittarius|Making the stars align for you.",
-  "Generic Ranged Weapon|Relic of a bygone era.",
-  "Gas Grenade|Hold your breath."
+  "死神天降|或低于或远离，取决于您所在的位置。",
+  "破浪者的鱼叉|他们可能会想要在某个时候回来。",
+  "梦想家|发射彩虹和阳光。",
+  "人马座|让星星为你对齐。",
+  "普通远程武器|旧时代的遗迹",
+  "瓦斯弹|屏住呼吸。"
 ];
 Game.mid_range_debuffs = [
-  [248, "Impending Doom", 5, 7],
-  [243, "Bloodthirst", 15, 30],
-  [250, "Counting Sheep", 15, 10],
-  [242, "Starfall", 15, 70],
-  [246, "Generic Bleed", 15, 30],
-  [250, "Sleeping Gas", 15, 10]
+  [248, "濒死", 5, 7],
+  [243, "嗜血", 15, 30],
+  [250, "数羊", 15, 10],
+  [242, "星落", 15, 70],
+  [246, "普通出血", 15, 30],
+  [250, "睡眠气体", 15, 10]
 ];
 Game.slow_range_special = [
-  "The Stakeholder|Raising the stakes, one corpse at a time.",
-  "Artemis Bow|Comes with a free built in harp, no strings attached.",
-  "Parting Shot|Something to remember them by.",
-  "Star Searcher|I wonder what we'll find today?",
-  "C4-Laced Boomerang|It better not come back...",
-  "Dwarven Hand Cannon|Apparently, dwarves had really big hands.",
-  "Tear Gas Launcher|Illegal for use in Canada. Caution advised."
+  "利益相关者|提高赌注，一次一个尸体。",
+  "阿蒂米斯弓|它有一个免费的竖琴，没有任何附加条件。",
+  "分开射击|要记住它们。",
+  "星形搜索器|我想知道今天我们会发现什么?",
+  "C4飞行回旋镖|最好不要回来……",
+  "矮人手炮|显然，矮人们的手很大。",
+  "催泪瓦斯发射器|在加拿大是违法的。小心谨慎。"
 ];
 Game.slow_range_debuffs = [
-  [247, "Unbalanced", 15, 20],
-  [245, "Charm", 5, -1],
-  [241, "Ruthlessness", 15, -1],
-  [249, "Arm Shot", 15, -1],
-  [246, "Shrapnel", 15, 30],
-  [248, "Explosive Shot", 5, 7],
-  [249, "Incapacitated", 15, -1]
+  [247, "不平衡的", 15, 20],
+  [245, "符咒", 5, -1],
+  [241, "冷酷无情", 15, -1],
+  [249, "手臂射击", 15, -1],
+  [246, "弹片", 15, 30],
+  [248, "爆炸弹", 5, 7],
+  [249, "丧失能力", 15, -1]
 ];
 Game.fast_magic_special = [
   "Thundercaller|A lightning rod, for all intents and purposes.",
@@ -241,8 +241,8 @@ Game.mid_magic_special = [
   "Hypnotist's Watch|Your eyelids are getting heavy..."
 ];
 Game.mid_magic_debuffs = [
-  [246, "Slow Burn", 15, 30],
-  [244, "Cripple", 15, 25],
+  [246, "缓慢燃烧", 15, 30],
+  [244, "削弱", 15, 25],
   [243, "Drain Life", 15, 30],
   [241, "Find Weakness", 15, -1],
   [249, "Wing Clip", 15, -1],
@@ -250,7 +250,7 @@ Game.mid_magic_debuffs = [
 ];
 Game.slow_magic_special = [
   "The Tetranomicon|Written and bound by Tetradigm. Mostly incomprehensible.",
-  "Comet Chaser|Note: Comets are dangerous, DO NOT TRY THIS AT HOME.",
+  "彗星追逐者|注意:彗星是危险的，不要在家里尝试。",
   "Absolute Zero|Not quite. But it's close!",
   "Judgement Staff|Bear the weight of your crimes!",
   "Cock of the Infinite|I put on my robe and wizard hat.",
@@ -258,7 +258,7 @@ Game.slow_magic_special = [
 ];
 Game.slow_magic_debuffs = [
   [248, "Flames of Tetradigm", 5, 7],
-  [246, "Slow Burn", 15, 30],
+  [246, "缓慢燃烧", 15, 30],
   [247, "Bitter Cold", 15, 25],
   [248, "Judgement Bolt", 5, 10],
   [241, "Penetration", 15, -1],
@@ -267,37 +267,37 @@ Game.slow_magic_debuffs = [
 // Prefixes for non-great items
 // Yes there's a blank one, it's so the item has no prefix :)
 Game.weaponQualityDescriptors = [
-  ["Worthless", "Damaged", "Inept", "Decayed", "Flawed", "Decrepit", "Useless"],
-  ["Average", "Unremarkable", "", "Passable", "Basic", "Simple", "Usable", "Adequate"],
-  ["Pristine", "Enhanced", "Powerful", "Well-Maintained", "Powerful", "Superior", "Exceptional"]
+  ["一文不值的", "损坏的", "笨拙的", "腐烂的", "有缺陷的", "破旧的", "一文不值的"],
+  ["平均的", "平凡的", "", "过得去的", "基本的", "简单的", "可用的", "适当的"],
+  ["原始的", "增强的", "强大的", "保养良好的", "强大的", "优越的", "杰出的"]
 ];
 Game.armourQualityDescriptors = [
-  ["Tattered", "Frayed", "Threadbare", "Cracked", "Battleworn", "Useless", "Worthless"],
-  ["Average", "Unremarkable", "", "Passable", "Basic", "Simple", "Usable", "Adequate"],
-  ["Polished", "Well-Kept", "Reinforced", "Tempered", "Heavy", "Spotless", "Exceptional"]
+  ["破烂的", "磨损的", "破旧的", "破裂的", "战斗磨损的", "无用的", "一文不值的"],
+  ["平均的", "平凡的", "", "过得去的", "基本的", "简单的", "可用的", "适当的"],
+  ["擦亮的", "保存完好的", "加固的", "缓和的", "沉重的", "一尘不染的", "杰出的"]
 ];
 Game.armour_generic = [
-  "Robe",
-  "Jerkin",
-  "Poncho",
-  "Overcoat",
-  "Tunic",
-  "Cuirass",
-  "Brigandine",
-  "Chestplate",
-  "Buckler",
-  "Deflector",
-  "Longcoat",
-  "Wrap",
-  "Tower Shield",
-  "Kite Shield",
-  "Legplates",
-  "Shorts",
-  "Tights",
-  "Hat",
-  "Beanie",
-  "Kilt",
-  "Trench Coat"
+  "长袍",
+  "短上衣",
+  "雨披",
+  "大衣",
+  "外套",
+  "胸甲",
+  "锁子甲",
+  "胸甲",
+  "圆盾",
+  "导流板",
+  "长大衣",
+  "包装",
+  "塔盾",
+  "风筝盾",
+  "腿板",
+  "短裤",
+  "连裤袜",
+  "帽子",
+  "无檐小便帽",
+  "苏格兰短裙",
+  "风衣"
 ];
 Game.armour_special = [
   "The Blue Collar|If this won't stop attackers, the one wearing it will.",

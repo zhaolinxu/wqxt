@@ -3,10 +3,10 @@
 /*global Game, prettifyNumber, abbreviateNumber, arraysEqual, statValue, clearElementContent, updateElementIDContent, toggleHelpVis, keyBindings*/
 "use strict";
 Game.ZONE_NAMES = [
-  "Whispering Cave",
-  "Ash Cultist Outpost",
-  "Dawn's Light Swamp",
-  "The Final Stop",
+  "低语洞穴",
+  "灰教徒前哨",
+  "黎明之光沼泽",
+  "最后一站",
   "Echoing Passage",
   "The Swiftsteel Workshop",
   "Weary Hollow Chapel",
@@ -102,10 +102,10 @@ Game.changeZone = function (zoneID) {
   if (zoneID <= Game.p_maxZone && zoneID !== Game.p_currentZone) {
     if (Game.p_State === Game.STATE_IDLE) {
       Game.p_currentZone = zoneID;
-      Game.toastNotification("Moved to " + Game.ZONE_NAMES[zoneID] + ".");
+      Game.toastNotification("移动到 " + Game.ZONE_NAMES[zoneID] + ".");
       Game.repopulateShop();
     } else {
-      Game.toastNotification("Cannot change zones during combat.");
+      Game.toastNotification("在战斗中无法改变区域。");
     }
   }
 };

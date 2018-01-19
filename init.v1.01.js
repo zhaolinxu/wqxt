@@ -379,7 +379,7 @@ Game.init = function () {
     this.save(true);
   } else {
     this.showPanel(this.activePanel);
-    this.toastNotification("Game loaded.");
+    this.toastNotification("游戏已加载。");
   }
   // Set up the buttons here.
   var playerTabButton = document.getElementById("playerTab"),
@@ -430,7 +430,7 @@ Game.init = function () {
 };
 
 Game.reset = function () {
-  if (confirm("Are you sure you wish to erase your save? It will be lost permanently...")) {
+  if (confirm("您确定要删除您的游戏进度吗?它会永久地消失...")) {
     window.localStorage.removeItem("gameSave");
     window.location.reload();
   }
@@ -440,7 +440,7 @@ Game.prestige = function () {
   var prestigeBonus = Game.p_Level;
   if (Game.p_State === Game.STATE_IDLE) {
     if (Game.p_maxZone > 0) {
-      if (confirm("The following actions will take place: \n • You will lose all of your items and currency. \n • Your character will be returned to level 1. \n • You will gain " + prestigeBonus + " prestige levels. \n\n Are you sure you wish to prestige?")) {
+      if (confirm("将会发生以下动作: \n • 你将失去你所有的物品和货币。 \n • 您的角色将返回到第1级。 \n • 你将会获得 " + prestigeBonus + " 声望等级。 \n\n 您确定要转生吗?")) {
         Game.POINTS_STR = 0;
         Game.POINTS_DEX = 0;
         Game.POINTS_INT = 0;

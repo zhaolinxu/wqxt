@@ -11,22 +11,22 @@ actions and advancement.
 
 Game.levelUp = function () {
   var hpUp = 0, strUp = 0, dexUp = 0, intUp = 0, conUp = 0, statUpChance = 0, chosenStat = 0;
-  Game.combatLog("info", "Level up! You are now level <span class='q222'>" + (Game.p_Level + 1) + "</span>.");
+  Game.combatLog("info", "升级了! 你现在的等级是 <span class='q222'>" + (Game.p_Level + 1) + "</span>.");
   hpUp = Game.RNG(25, 30);
   Game.p_MaxHP += hpUp;
-  Game.combatLog("info", "You gained <span class='q222'>" + hpUp + "</span> maximum HP.");
+  Game.combatLog("info", "获得了 <span class='q222'>" + hpUp + "</span> 血上限。");
   strUp = 1 + (Game.p_Weapon[2] === Game.WEAPON_MELEE ? 1 : 0);
   Game.p_Str += strUp;
-  Game.combatLog("info", "You gained <span class='q222'>" + strUp + "</span> Strength.");
+  Game.combatLog("info", "获得了 <span class='q222'>" + strUp + "</span> 力量。");
   dexUp = 1 + (Game.p_Weapon[2] === Game.WEAPON_RANGE ? 1 : 0);
   Game.p_Dex += dexUp;
-  Game.combatLog("info", "You gained <span class='q222'>" + dexUp + "</span> Dexterity.");
+  Game.combatLog("info", "获得了 <span class='q222'>" + dexUp + "</span> 灵巧。");
   intUp = 1 + (Game.p_Weapon[2] === Game.WEAPON_MAGIC ? 1 : 0);
   Game.p_Int += intUp;
-  Game.combatLog("info", "You gained <span class='q222'>" + intUp + "</span> Intelligence.");
+  Game.combatLog("info", "获得了 <span class='q222'>" + intUp + "</span> 智力。");
   conUp = Game.RNG(1, 4) === 1 ? 2 : 1;
   Game.p_Con += conUp;
-  Game.combatLog("info", "You gained <span class='q222'>" + conUp + "</span> Constitution.");
+  Game.combatLog("info", "获得了 <span class='q222'>" + conUp + "</span> 体质。");
   Game.p_MaxHP += (15 * conUp);
   statUpChance = 2 * Game.powerLevel(Game.SKILL_PATIENCE_AND_DISCIPLINE);
   if (statUpChance > 0 && Game.RNG(1, 100) <= 3 * statUpChance) {
@@ -34,19 +34,19 @@ Game.levelUp = function () {
     switch (chosenStat) {
     case 1:
       Game.p_Str += 1;
-      Game.combatLog("info", "<span class='q222'>Patience and Discipline</span> granted an additional 1 Strength.");
+      Game.combatLog("info", "<span class='q222'>耐心和纪律</span> granted an additional 1 Strength.");
       break;
     case 2:
       Game.p_Dex += 1;
-      Game.combatLog("info", "<span class='q222'>Patience and Discipline</span> granted an additional 1 Dexterity.");
+      Game.combatLog("info", "<span class='q222'>耐心和纪律</span> granted an additional 1 Dexterity.");
       break;
     case 3:
       Game.p_Int += 1;
-      Game.combatLog("info", "<span class='q222'>Patience and Discipline</span> granted an additional 1 Intelligence.");
+      Game.combatLog("info", "<span class='q222'>耐心和纪律</span> granted an additional 1 Intelligence.");
       break;
     case 4:
       Game.p_Con += 1;
-      Game.combatLog("info", "<span class='q222'>Patience and Discipline</span> granted an additional 1 Constitution.");
+      Game.combatLog("info", "<span class='q222'>耐心和纪律</span> granted an additional 1 Constitution.");
       break;
     }
   }
@@ -61,14 +61,14 @@ Game.levelUp = function () {
     } // Terminally Unimaginative
   }
   Game.p_StatPoints += 1;
-  Game.combatLog("info", "You gained a Stat Point.");
+  Game.combatLog("info", "获得了 a Stat Point.");
   if (Game.RNG(1, 50) <= Game.powerLevel(Game.SKILL_LUCK_OF_THE_DRAW)) {
     Game.p_StatPoints += 1;
     Game.combatLog("info", "<span class='q222'>Luck of the Draw</span> activates, granting a Stat Point.");
   }
   if (Game.p_Level >= 5 && Game.p_Level % 2 === 1) {
     Game.p_SkillPoints += 1;
-    Game.combatLog("info", "You gained a Skill Point.");
+    Game.combatLog("info", "获得了 a Skill Point.");
   }
   if (Game.RNG(1, 100) <= Game.powerLevel(Game.SKILL_LUCKY_STAR)) {
     Game.p_SkillPoints += 1;

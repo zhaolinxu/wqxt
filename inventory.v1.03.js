@@ -887,20 +887,20 @@ Game.reforgeWeapon = function (debuff, isSuperior) {
       break;
     case 243:
       if (isSuperior) {
-        Game.p_Weapon[9] = [243, (dbName.trim() === "" ? "Bloodthirst" : dbName), 15, 30];
+        Game.p_Weapon[9] = [243, (dbName.trim() === "" ? "嗜血" : dbName), 15, 30];
       } else {
         Game.p_Weapon[9] = [243, "Bloodthirst", 10, 20];
       }
       break;
     case 244:
       if (isSuperior) {
-        Game.p_Weapon[9] = [244, (dbName.trim() === "" ? "Cripple" : dbName), 15, 25];
+        Game.p_Weapon[9] = [244, (dbName.trim() === "" ? "削弱" : dbName), 15, 25];
       } else {
         Game.p_Weapon[9] = [244, "Cripple", 10, 15];
       }
       break;
     case 245:
-      Game.p_Weapon[9] = [245, (dbName.trim() === "" ? "Charm" : dbName), 5, -1];
+      Game.p_Weapon[9] = [245, (dbName.trim() === "" ? "魅力" : dbName), 5, -1];
       break;
     case 246:
       if (isSuperior) {

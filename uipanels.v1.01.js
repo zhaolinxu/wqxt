@@ -57,13 +57,13 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
   dmgType = "";
   switch (weapon[2]) {
   case Game.WEAPON_MELEE:
-    dmgType = "Melee";
+    dmgType = "近战";
     break;
   case Game.WEAPON_RANGE:
-    dmgType = "Ranged";
+    dmgType = "远程";
     break;
   case Game.WEAPON_MAGIC:
-    dmgType = "Magic";
+    dmgType = "魔法";
     break;
   }
   dmgSection.innerHTML = "<strong>" + weapon[4] + "</strong> - <strong>" + weapon[5] + "</strong> " + dmgType + " 伤害 (" + weapon[6] + " 秒伤害)";
@@ -82,7 +82,7 @@ Game.createWeaponUIPanel = function (weapon, sourcePanel, itemSlot) {
   if (arraysEqual(weapon, Game.p_Weapon)) {
     duraSection.id = "combat_playerWeaponDurability";
   }
-  duraSection.innerHTML = weapon[8] + " uses";
+  duraSection.innerHTML = weapon[8] + " 耐久";
   row3.appendChild(debuffSection);
   row3.appendChild(duraSection);
   panel.appendChild(row3);
@@ -273,7 +273,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
   if (arraysEqual(armour, Game.p_Armour)) {
     duraSection.id = "combat_playerArmourDurability";
   }
-  duraSection.innerHTML += armour[3] + " uses";
+  duraSection.innerHTML += armour[3] + " 耐久";
   row2.appendChild(effect1Section);
   row2.appendChild(duraSection);
   panel.appendChild(row2);
@@ -415,7 +415,7 @@ Game.createArmourUIPanel = function (armour, sourcePanel, itemSlot) {
         Game.buyArmourQualityUpgrade();
       };
     }();
-    qualityButton.innerHTML = (armour[2] == Game.QUALITY_AMAZING ? "Cannot increase armour quality." : "Increase Armour Quality for " + Game.calculateItemQualityPrice(armour[2]) + " scrap");
+    qualityButton.innerHTML = (armour[2] == Game.QUALITY_AMAZING ? "不能提高装甲品阶。" : "提高装备品阶需要 " + Game.calculateItemQualityPrice(armour[2]) + " 碎片");
     qualitySection.appendChild(qualityButton);
     row5.appendChild(levelSection);
     row5.appendChild(qualitySection);
@@ -722,12 +722,12 @@ Game.createForgePanel = function (debuffID) {
   var nameSection = document.createElement("td");
   nameSection.setAttribute("style", "font-size:18px;font-weight:bold;");
   nameSection.setAttribute("colspan", 2)
-  nameSection.innerHTML = (debuffID < Game.DEBUFF_SHRED) ? "Random" : Game.debuff_names[debuffID - Game.DEBUFF_SHRED];
+  nameSection.innerHTML = (debuffID < Game.DEBUFF_SHRED) ? "随机" : Game.debuff_names[debuffID - Game.DEBUFF_SHRED];
   row1.appendChild(nameSection);
   panel.appendChild(row1);
   var descSection = document.createElement("td");
   descSection.setAttribute("colspan", 2);
-  descSection.innerHTML = (debuffID < Game.DEBUFF_SHRED) ? "Selects a debuff at random from the others listed." : Game.debuff_descriptions[debuffID - Game.DEBUFF_SHRED];
+  descSection.innerHTML = (debuffID < Game.DEBUFF_SHRED) ? "从列出的其他负面状态中随机选择一个。" : Game.debuff_descriptions[debuffID - Game.DEBUFF_SHRED];
   row2.appendChild(descSection);
   panel.appendChild(row2);
   if (debuffID == Game.DEBUFF_MC) {
@@ -741,7 +741,7 @@ Game.createForgePanel = function (debuffID) {
         Game.reforgeWeapon(a, b);
       };
     }(debuffID, false);
-    cheapButton.innerHTML = "Buy Normal Debuff (4)";
+    cheapButton.innerHTML = "购买正常减益魔法 (4)";
     cheapSection.appendChild(cheapButton);
     row3.appendChild(cheapSection);
     panel.appendChild(row3);
@@ -755,7 +755,7 @@ Game.createForgePanel = function (debuffID) {
         Game.reforgeWeapon(a, b);
       };
     }(debuffID, false);
-    cheapButton.innerHTML = "Buy Normal Debuff (" + (debuffID < Game.DEBUFF_SHRED ? 1 : 4) + ")";
+    cheapButton.innerHTML = "购买正常减益魔法 (" + (debuffID < Game.DEBUFF_SHRED ? 1 : 4) + ")";
     cheapSection.appendChild(cheapButton);
     row3.appendChild(cheapSection);
     var expensiveSection = document.createElement("td");
@@ -767,7 +767,7 @@ Game.createForgePanel = function (debuffID) {
         Game.reforgeWeapon(a, b);
       };
     }(debuffID, true);
-    expensiveButton.innerHTML = "Buy Superior Debuff (" + (debuffID < Game.DEBUFF_SHRED ? 2 : 8) + ")";
+    expensiveButton.innerHTML = "购买高级减益魔法(" + (debuffID < Game.DEBUFF_SHRED ? 2 : 8) + ")";
     expensiveSection.appendChild(expensiveButton);
     row3.appendChild(expensiveSection);
     panel.appendChild(row3);
