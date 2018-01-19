@@ -345,7 +345,7 @@ Game.playerCombatTick = function (isBurst) {
             debuffApplied = true;
             if (Game.getPlayerDebuff()[0] === Game.DEBUFF_MC) {
               Game.p_Debuff = Game.p_Weapon[9].slice();
-              Game.combatLog("enemy", " - You suffer from <span class='q222'>" + Game.p_Weapon[9][1] + "</span>.");
+              Game.combatLog("enemy", " - 你遭受了 <span class='q222'>" + Game.p_Weapon[9][1] + "</span>.");
               Game.TRACK_DEBUFFS_IN += 1;
               Game.giveBadge(Game.BADGE_SELF_DEBUFF); // Hoisted By My Own Petard
               Game.player_debuffTimer = Game.p_Weapon[9][2];
@@ -383,7 +383,7 @@ Game.playerCombatTick = function (isBurst) {
         if (!Game.flurryActive) {
           if (Game.RNG(1, 50) <= Game.powerLevel(Game.SKILL_FLURRY)) {
             Game.flurryActive = true;
-            Game.combatLog("player", " - <span class='q222'>慌乱</span> activated for an additional strike!");
+            Game.combatLog("player", " - <span class='q222'>慌乱</span> 激活了1次额外攻击");
             Game.playerCombatTick(isBurst);
           }
         } else {
@@ -645,7 +645,7 @@ Game.enemyCombatTick = function () {
         if (Game.RNG(1, 10) === 1) {
           if (Game.getEnemyDebuff()[0] === Game.DEBUFF_MC) {
             Game.e_Debuff = Game.e_Weapon[9].slice();
-            Game.combatLog("player", " - " + (Game.e_ProperName ? "" : "The ") + Game.e_Name + " suffers from <span class='q222'>" + Game.e_Weapon[9][1] + "</span>.");
+            Game.combatLog("player", " - " + (Game.e_ProperName ? "" : " ") + Game.e_Name + " 遭受了 <span class='q222'>" + Game.e_Weapon[9][1] + "</span>.");
             Game.TRACK_DEBUFFS_OUT += 1;
             Game.giveBadge(Game.BADGE_ENEMY_SELF_DEBUFF); // Tarred With Their Own Brush
             Game.enemy_debuffTimer = Game.e_Weapon[9][2];
@@ -653,18 +653,18 @@ Game.enemyCombatTick = function () {
             Game.enemy_debuffInterval = window.setInterval(Game.enemyDebuffTicker, 1000);
             if (Game.getEnemyDebuff()[0] === Game.DEBUFF_SLEEP) {
               window.clearInterval(Game.combat_enemyInterval);
-              Game.combatLog("player", (Game.e_ProperName ? "" : "The ") + Game.e_Name + " falls asleep...");
+              Game.combatLog("player", (Game.e_ProperName ? "" : " ") + Game.e_Name + " 陷入了沉睡...");
             }
           } else {
             Game.p_Debuff = Game.e_Weapon[9].slice();
-            Game.combatLog("enemy", " - You suffer from <span class='q222'>" + Game.e_Weapon[9][1] + "</span>.");
+            Game.combatLog("enemy", " - 你遭受了 <span class='q222'>" + Game.e_Weapon[9][1] + "</span>.");
             Game.TRACK_DEBUFFS_IN += 1;
             Game.player_debuffTimer = Game.e_Weapon[9][2];
             window.clearInterval(Game.player_debuffInterval);
             Game.player_debuffInterval = window.setInterval(Game.playerDebuffTicker, 1000);
             if (Game.getPlayerDebuff()[0] === Game.DEBUFF_SLEEP) {
               window.clearInterval(Game.combat_playerInterval);
-              Game.combatLog("player", "You fall asleep...");
+              Game.combatLog("player", "你陷入了沉睡...");
             }
           }
         }
