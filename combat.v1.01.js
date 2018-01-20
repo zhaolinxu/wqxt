@@ -81,14 +81,14 @@ Game.playerCombatTick = function (isBurst) {
       // Paralysis Check!
       if (Game.getPlayerDebuff()[0] === Game.DEBUFF_PARAHAX && Game.RNG(1, 100) <= Game.p_Debuff[3]) {
         // Paralysis happened.
-        Game.combatLog("player", "<span class='q222'>" + Game.p_Debuff[1] + "</span> prevented you from attacking.");
+        Game.combatLog("player", "<span class='q222'>" + Game.p_Debuff[1] + "</span> 阻止你进攻。");
         Game.TRACK_PARAHAX_IN += 1;
       } else {
         // Stage 0: Execute
         if (Game.e_HP / Game.e_MaxHP < 0.25) {
           if (Game.RNG(1, 20) <= Game.powerLevel(Game.SKILL_EXECUTE)) {
             Game.e_HP = 0;
-            Game.combatLog("player", "<span class='q222'>Execute</span> activated, instantly dealing a killing blow.");
+            Game.combatLog("player", "<span class='q222'>处决</span> 激活了, 立即造成必杀一击。");
             if (Game.wildSwing) {
               Game.wildSwing = false;
               Game.combatLog("player", "<span class='q222'>剧烈波动</span> ended.");
@@ -129,7 +129,7 @@ Game.playerCombatTick = function (isBurst) {
               Game.specResetInterval = null;
             }
             Game.p_specUsed = false;
-            Game.combatLog("player", "<span class='q222'>Bloodlust</span> refreshed the cooldown on your " + Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "剧烈波动!" : "突发攻击!");
+            Game.combatLog("player", "<span class='q222'>嗜血</span> 刷新你的冷却时间 " + Game.powerLevel(Game.SKILL_WILD_SWINGS) > 0 ? "剧烈波动!" : "突发攻击!");
           }
         }
         if (Game.powerLevel(Game.SKILL_OVERCHARGE) > 0) {
@@ -141,13 +141,13 @@ Game.playerCombatTick = function (isBurst) {
           playerDMG *= (1 + 0.05 * Game.powerLevel(Game.SKILL_ADRENALINE_RUSH));
           Game.p_Adrenaline -= 1;
           if (Game.p_Adrenaline === 0) {
-            Game.combatLog("player", "The <span class='q222'>Adrenaline Rush</span> subsides.");
+            Game.combatLog("player", " <span class='q222'>肾上腺素激增</span> 结束了。");
           }
         } else {
           if (Game.powerLevel(Game.SKILL_ADRENALINE_RUSH) > 0 && didCrit) {
             // Activate Adrenaline Rush on crit.
             Game.p_Adrenaline = 3;
-            Game.combatLog("player", " - You feel an <span class='q222'>Adrenaline Rush</span>!");
+            Game.combatLog("player", " - 你感觉到 <span class='q222'>肾上腺素激增</span>!");
           }
         }
         // Stage 3: Percentile Reductions
