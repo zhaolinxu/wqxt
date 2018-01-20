@@ -383,7 +383,7 @@ Game.playerCombatTick = function (isBurst) {
         if (!Game.flurryActive) {
           if (Game.RNG(1, 50) <= Game.powerLevel(Game.SKILL_FLURRY)) {
             Game.flurryActive = true;
-            Game.combatLog("player", " - <span class='q222'>慌乱</span> 激活了1次额外攻击");
+            Game.combatLog("player", " - <span class='q222'>狂乱</span> 激活了1次额外攻击");
             Game.playerCombatTick(isBurst);
           }
         } else {
