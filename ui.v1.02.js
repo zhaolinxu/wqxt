@@ -257,20 +257,20 @@ Game.createPlayerTab = function () {
   statPanel.appendChild(Game.createStatisticPanel("获得的总经验", Game.TRACK_XP_GAINED, "player_stat20"));
   statPanel.appendChild(Game.createStatisticPanel("失去经验", Game.TRACK_XP_LOST, "player_stat21"));
   statPanel.appendChild(Game.createStatisticPanel("经验溢出池", Game.TRACK_XP_OVERFLOW, "player_stat22"));
-  statPanel.appendChild(Game.createStatisticPanel("Item Upgrades Bought", Game.TRACK_UPGRADES, "player_stat23"));
-  statPanel.appendChild(Game.createStatisticPanel("Reforges Bought", Game.TRACK_REFORGES, "player_stat24"));
-  statPanel.appendChild(Game.createStatisticPanel("Skill/Stat Point Resets", Game.TRACK_RESETS, "player_stat25"));
-  statPanel.appendChild(Game.createStatisticPanel("Items Sold", Game.TRACK_ITEM_SALES, "player_stat26"));
-  statPanel.appendChild(Game.createStatisticPanel("Items Scrapped", Game.TRACK_ITEM_SCRAPS, "player_stat27"));
-  statPanel.appendChild(Game.createStatisticPanel("Items Discarded", Game.TRACK_ITEM_DISCARDS, "player_stat28"));
-  statPanel.appendChild(Game.createStatisticPanel("Items Broken in Combat", Game.TRACK_BROKEN_ITEMS, "player_stat29"));
-  statPanel.appendChild(Game.createStatisticPanel("Seeds Gained from Combat", Game.TRACK_COMBAT_SEEDS, "player_stat30"));
-  statPanel.appendChild(Game.createStatisticPanel("Seeds Gained from Sales", Game.TRACK_SALE_SEEDS, "player_stat31"));
-  statPanel.appendChild(Game.createStatisticPanel("Scrap Gained from Combat", Game.TRACK_COMBAT_SCRAP, "player_stat32"));
-  statPanel.appendChild(Game.createStatisticPanel("Scrap Gained from Conversion", Game.TRACK_CONVERT_SCRAP, "player_stat33"));
-  statPanel.appendChild(Game.createStatisticPanel("Potions Used", Game.TRACK_POTIONS_USED, "player_stat48"));
-  statPanel.appendChild(Game.createStatisticPanel("Badges Earned", Game.playerBadges.length, "player_stat49"));
-  statPanel.appendChild(Game.createStatisticPanel("Prestige Level", Game.prestigeLevel, "player_stat50"));
+  statPanel.appendChild(Game.createStatisticPanel("物品升级购买", Game.TRACK_UPGRADES, "player_stat23"));
+  statPanel.appendChild(Game.createStatisticPanel("锻造购买", Game.TRACK_REFORGES, "player_stat24"));
+  statPanel.appendChild(Game.createStatisticPanel("技能点/属性点重置", Game.TRACK_RESETS, "player_stat25"));
+  statPanel.appendChild(Game.createStatisticPanel("物品出售", Game.TRACK_ITEM_SALES, "player_stat26"));
+  statPanel.appendChild(Game.createStatisticPanel("物品分解", Game.TRACK_ITEM_SCRAPS, "player_stat27"));
+  statPanel.appendChild(Game.createStatisticPanel("物品丢弃", Game.TRACK_ITEM_DISCARDS, "player_stat28"));
+  statPanel.appendChild(Game.createStatisticPanel("在战斗中损坏的物品", Game.TRACK_BROKEN_ITEMS, "player_stat29"));
+  statPanel.appendChild(Game.createStatisticPanel("从战斗中获得的种子", Game.TRACK_COMBAT_SEEDS, "player_stat30"));
+  statPanel.appendChild(Game.createStatisticPanel("从出售中获得的种子", Game.TRACK_SALE_SEEDS, "player_stat31"));
+  statPanel.appendChild(Game.createStatisticPanel("从战斗中获得的碎片", Game.TRACK_COMBAT_SCRAP, "player_stat32"));
+  statPanel.appendChild(Game.createStatisticPanel("从分解中获得的碎片", Game.TRACK_CONVERT_SCRAP, "player_stat33"));
+  statPanel.appendChild(Game.createStatisticPanel("药水使用", Game.TRACK_POTIONS_USED, "player_stat48"));
+  statPanel.appendChild(Game.createStatisticPanel("获得徽章", Game.playerBadges.length, "player_stat49"));
+  statPanel.appendChild(Game.createStatisticPanel("声望等级", Game.prestigeLevel, "player_stat50"));
 };
 
 Game.createCombatTab = function () {
